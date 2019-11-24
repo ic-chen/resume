@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>後台管理</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+<style>
+    #admin {
+        width: 100vw;
+        height: 100vh;
+
+        background: gray;
+    }
+    #menu {
+        background: cadetblue;
+        
+        width: 20%;
+        height: 100%;
+        box-sizing: border-box;
+
+        float:left;
+
+        text-align: left;
+        line-height: 2em;
+        padding-left: 2%;
+        padding-top: 2%;
+    }
+    #content {
+        background: gray;
+
+        width: 80%;
+        height: 100%;
+        box-sizing: border-box;
+
+        float:left;
+    }
+</style>
+</head>
+<body>
+    <div id="admin">
+        <div id="menu">
+            <a href="#" onclick="loadpage('admin_data.html')">管理個人資料</a>
+            <br>
+            <a href="#" onclick="loadpage('admin_resume.html')">管理履歷</a>
+            <br>
+            <a href="#">登出</a>
+        </div>
+        <div id="content"></div>
+    </div>
+
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script>
+        loadpage('admin_data.html')
+        function loadpage(page){
+            $('#content').load('./content/'+page)
+        }
+    </script>
+</body>
+</html>

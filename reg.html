@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>註冊</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+<style>
+    .reg {
+        width: 30em;
+        height: 23em;
+        box-sizing: border-box;
+        margin: auto;
+
+        padding: 1em;
+        border: 1px solid #ccc;
+
+        position: relative;
+        top: 3em;
+    }
+    #acct, #psw, #name, #gender, #btd, #email, #tel_cell, #tel_home, textarea {
+        width: 20em;
+    }
+    .btn {
+        text-align: center;
+    }
+    table {
+        margin: auto;
+        border-spacing: 5px;
+    }
+</style>
+</head>
+<body>
+<form action="" method="post">
+<div class="reg">
+    <table>
+        <tr>
+            <td>帳號：</td>
+            <td><input type="text" name="acct" id="acct"></td>
+        </tr>
+        <tr>
+            <td>密碼：</td>
+            <td><input type="text" name="psw" id="psw"></td>
+        </tr>
+        <tr>
+            <td>姓名：</td>
+            <td><input type="text" name="name" id="name"></td>
+        </tr>
+        <tr>
+            <td>性別：</td>
+            <td><input type="text" name="gender" id="gender"></td>
+        </tr>
+        <tr>
+            <td>生日：</td>
+            <td><input type="date" name="btd" id="btd"></td>
+        </tr>
+        <tr>
+            <td>電子郵件：</td>
+            <td><input type="text" name="email" id="email"></td>
+        </tr>
+        <tr>
+            <td>手機：</td>
+            <td><input type="text" name="tel_cell" id="tel_cell"></td>
+        </tr>
+        <tr>
+            <td>家中電話：</td>
+            <td><input type="text" name="tel_home" id="tel_home"></td>
+        </tr>
+        <tr>
+            <td>居住地址：</td>
+            <td><textarea name="addr" id="addr"></textarea></td>
+        </tr>
+    </table>
+    <br>
+    <div class="btn">
+    <input type="submit" value="註冊">
+    <input type="reset" value="清除">
+    </div>
+</div>
+</form>
+</body>
+</html>
