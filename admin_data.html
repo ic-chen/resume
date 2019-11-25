@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>管理個人資料</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+    <table>
+        <tr>
+            <td>帳號：</td>
+            <td id="acct"></td>
+        </tr>
+        <tr>
+            <td>密碼：</td>
+            <td><input type="text" name="psw" id="psw"></td>
+        </tr>
+        <tr>
+            <td>姓名：</td>
+            <td><input type="text" name="name" id="name"></td>
+        </tr>
+        <tr>
+            <td>性別：</td>
+            <td><input type="text" name="gender" id="gender"></td>
+        </tr>
+        <tr>
+            <td>生日：</td>
+            <td><input type="text" name="btd" id="btd"></td>
+        </tr>
+        <tr>
+            <td>電子郵件：</td>
+            <td><input type="text" name="email" id="email"></td>
+        </tr>
+        <tr>
+            <td>行動電話：</td>
+            <td><input type="text" name="tel_cell" id="tel_cell"></td>
+        </tr>
+        <tr>
+            <td>家中電話：</td>
+            <td><input type="text" name="tel_home" id="tel_home"></td>
+        </tr>
+        <tr>
+            <td>地址：</td>
+            <td>
+                <textarea name="addr" id="addr"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>註冊時間：</td>
+            <td id="reg_time"></td>
+        </tr>
+        <tr>
+            <td>更新時間：</td>
+            <td id="upt_time"></td>
+        </tr>
+    </table>
+
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script>
+    function query(){
+        $.get('./api/query.php',{},function(res){
+            console.log(res)
+        })
+    }
+    query()
+</script>
+</body>
+</html>

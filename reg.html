@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>註冊</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="./js/jquery-3.4.1.min.js"></script>
 <style>
     .reg {
         width: 30em;
@@ -20,6 +21,7 @@
         top: 3em;
     }
     #acct, #psw, #name, #gender, #btd, #email, #tel_cell, #tel_home, textarea {
+        color: gray;
         width: 20em;
     }
     .btn {
@@ -32,24 +34,32 @@
 </style>
 </head>
 <body>
-<form action="" method="post">
+<form action="./api/reg_user.php" method="post">
 <div class="reg">
     <table>
         <tr>
             <td>帳號：</td>
-            <td><input type="text" name="acct" id="acct"></td>
+            <td>
+                <input type="text" name="acct" id="acct">
+            </td>
         </tr>
         <tr>
             <td>密碼：</td>
-            <td><input type="text" name="psw" id="psw"></td>
+            <td>
+                <input type="text" name="psw" id="psw">
+            </td>
         </tr>
         <tr>
             <td>姓名：</td>
-            <td><input type="text" name="name" id="name"></td>
+            <td>
+                <input type="text" name="name" id="name">
+            </td>
         </tr>
         <tr>
             <td>性別：</td>
-            <td><input type="text" name="gender" id="gender"></td>
+            <td>
+                <input type="text" name="gender" id="gender">
+            </td>
         </tr>
         <tr>
             <td>生日：</td>
@@ -57,15 +67,21 @@
         </tr>
         <tr>
             <td>電子郵件：</td>
-            <td><input type="text" name="email" id="email"></td>
+            <td>
+                <input type="text" name="email" id="email">
+            </td>
         </tr>
         <tr>
-            <td>手機：</td>
-            <td><input type="text" name="tel_cell" id="tel_cell"></td>
+            <td>行動電話：</td>
+            <td>
+                <input type="text" name="tel_cell" id="tel_cell">
+            </td>
         </tr>
         <tr>
             <td>家中電話：</td>
-            <td><input type="text" name="tel_home" id="tel_home"></td>
+            <td>
+                <input type="text" name="tel_home" id="tel_home">
+            </td>
         </tr>
         <tr>
             <td>居住地址：</td>
@@ -79,5 +95,30 @@
     </div>
 </div>
 </form>
+
+<script>
+    // 點擊時清除內容
+    function clk(sel,str){
+        $(sel).val(str)
+        $(sel).on('blur',function(){
+            if($(this).val()==''){
+                $(this).val(str)
+            }
+        })
+        $(sel).on('focus',function(){
+            if($(this).val()==str){
+                $(this).val('')
+            }
+        })
+    }
+    clk('#acct','請輸入英數字元，勿超過20個字元')
+    clk('#psw','請輸入英數或符號字元，勿超過20個字元')
+    clk('#name','請輸入姓名')
+    clk('#gender','請輸入「男性」、「女性」或其他敘述')
+    clk('#email','請輸入電郵，例如「xxx@xxmail.com」')
+    clk('#tel_cell','請以連字號分隔，例如「0900-111-222」')
+    clk('#tel_home','請以連字號分隔，例如「(02)9999-1122」')
+    clk('#addr','請輸入居住地址')
+</script>
 </body>
 </html>
