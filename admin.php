@@ -98,12 +98,14 @@ if($_SESSION['login']==1){
         </div>
     </div>
 
-    <script src="./js/jquery-3.4.1.min.js"></script>
-    <script>
-        // loadpage('admin_data.html')
-        function loadpage(page){
-            $('#content').load(page)
-        }
-    </script>
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script>
+$(function(){
+    // 點選載入頁面
+    loadpage=(page)=>{
+    $('#content').load('./admin/'+page)
+    }
+})
+</script>
 </body>
 </html>

@@ -102,23 +102,31 @@
         $(sel).val(str)
         $(sel).on('blur',function(){
             if($(this).val()==''){
-                $(this).val(str)
+                $(this).val(str).css('color','gray')
             }
         })
         $(sel).on('focus',function(){
             if($(this).val()==str){
-                $(this).val('')
+                $(this).val('').css('color','black')
             }
         })
     }
-    clk('#acct','請輸入英數字元，勿超過20個字元')
-    clk('#psw','請輸入英數或符號字元，勿超過20個字元')
-    clk('#name','請輸入姓名')
-    clk('#gender','請輸入「男性」、「女性」或其他敘述')
-    clk('#email','請輸入電郵，例如「xxx@xxmail.com」')
-    clk('#tel_cell','請以連字號分隔，例如「0900-111-222」')
-    clk('#tel_home','請以連字號分隔，例如「(02)9999-1122」')
-    clk('#addr','請輸入居住地址')
+    let acct_def='請輸入英數字元，勿超過20個字元'
+    let psw_def='請輸入英數或符號字元，勿超過20個字元'
+    let name_def='請輸入姓名'
+    let gender_def='請輸入「男性」、「女性」或其他敘述'
+    let email_def='請輸入電郵，例如「xxx@xxmail.com」'
+    let tel_cell_def='請以連字號分隔，例如「0900-111-222」'
+    let tel_home_def='請以連字號分隔，例如「(02)9999-1122」'
+    let addr_def='請輸入居住地址'
+    clk('#acct',acct_def)
+    clk('#psw',psw_def)
+    clk('#name',name_def)
+    clk('#gender',gender_def)
+    clk('#email',email_def)
+    clk('#tel_cell',tel_cell_def)
+    clk('#tel_home',tel_home_def)
+    clk('#addr',addr_def)
 </script>
 </body>
 </html>
