@@ -9,7 +9,7 @@
 <!-- 設定未登入或未註冊時的訊息 -->
 <?php
 session_start();
-if(empty($_SESSION['login'])){
+if(!isset($_SESSION['login'])){
 ?>
 <style>
 body {

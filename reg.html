@@ -41,24 +41,28 @@
             <td>帳號：</td>
             <td>
                 <input type="text" name="acct" id="acct">
+                <input type="hidden" name="acct_def" id="acct_def" value="請輸入英數字元，勿超過20個字元">
             </td>
         </tr>
         <tr>
             <td>密碼：</td>
             <td>
                 <input type="text" name="psw" id="psw">
+                <input type="hidden" name="psw_def" id="psw_def" value="請輸入英數或符號字元，勿超過20個字元">
             </td>
         </tr>
         <tr>
             <td>姓名：</td>
             <td>
                 <input type="text" name="name" id="name">
+                <input type="hidden" name="name_def" id="name_def" value="請輸入姓名">
             </td>
         </tr>
         <tr>
             <td>性別：</td>
             <td>
                 <input type="text" name="gender" id="gender">
+                <input type="hidden" name="gender_def" id="gender_def" value="請輸入「男性」、「女性」或其他敘述">
             </td>
         </tr>
         <tr>
@@ -69,28 +73,34 @@
             <td>電子郵件：</td>
             <td>
                 <input type="text" name="email" id="email">
+                <input type="hidden" name="email_def" id="email_def" value="請輸入電郵，例如「xxx@xxmail.com」">
             </td>
         </tr>
         <tr>
             <td>行動電話：</td>
             <td>
                 <input type="text" name="tel_cell" id="tel_cell">
+                <input type="hidden" name="tel_cell_def" id="tel_cell_def" value="請以連字號分隔，例如「0900-111-222」">
             </td>
         </tr>
         <tr>
             <td>家中電話：</td>
             <td>
                 <input type="text" name="tel_home" id="tel_home">
+                <input type="hidden" name="tel_home_def" id="tel_home_def" value="請以連字號分隔，例如「(02)9999-1122」">
             </td>
         </tr>
         <tr>
             <td>居住地址：</td>
-            <td><textarea name="addr" id="addr"></textarea></td>
+            <td>
+                <textarea name="addr" id="addr"></textarea>
+                <input type="hidden" name="addr_def" id="addr_def" value="請輸入居住地址">
+            </td>
         </tr>
     </table>
     <br>
     <div class="btn">
-    <input type="submit" value="註冊">
+    <input type="submit" id="submit" value="註冊">
     <input type="reset" value="清除">
     </div>
 </div>
@@ -111,22 +121,28 @@
             }
         })
     }
-    let acct_def='請輸入英數字元，勿超過20個字元'
-    let psw_def='請輸入英數或符號字元，勿超過20個字元'
-    let name_def='請輸入姓名'
-    let gender_def='請輸入「男性」、「女性」或其他敘述'
-    let email_def='請輸入電郵，例如「xxx@xxmail.com」'
-    let tel_cell_def='請以連字號分隔，例如「0900-111-222」'
-    let tel_home_def='請以連字號分隔，例如「(02)9999-1122」'
-    let addr_def='請輸入居住地址'
-    clk('#acct',acct_def)
-    clk('#psw',psw_def)
-    clk('#name',name_def)
-    clk('#gender',gender_def)
-    clk('#email',email_def)
-    clk('#tel_cell',tel_cell_def)
-    clk('#tel_home',tel_home_def)
-    clk('#addr',addr_def)
+    // let acct_def='請輸入英數字元，勿超過20個字元'
+    // let psw_def='請輸入英數或符號字元，勿超過20個字元'
+    // let name_def='請輸入姓名'
+    // let gender_def='請輸入「男性」、「女性」或其他敘述'
+    // let email_def='請輸入電郵，例如「xxx@xxmail.com」'
+    // let tel_cell_def='請以連字號分隔，例如「0900-111-222」'
+    // let tel_home_def='請以連字號分隔，例如「(02)9999-1122」'
+    // let addr_def='請輸入居住地址'
+    clk('#acct',$('#acct_def').val())
+    clk('#psw',$('#psw_def').val())
+    clk('#name',$('#name_def').val())
+    clk('#gender',$('#gender_def').val())
+    clk('#email',$('#email_def').val())
+    clk('#tel_cell',$('#tel_cell_def').val())
+    clk('#tel_home',$('#tel_home_def').val())
+    clk('#addr',$('#addr_def').val())
+
+    // $('#submit').on('click',function(){
+    //     $.post('./api/reg_user.php',{acct_def, psw_def, name_def, gender_def, email_def, tel_cell_def, tel_home_def, addr_def},function(){
+
+    //     })
+    // })
 </script>
 </body>
 </html>
