@@ -2,6 +2,16 @@ body {
     margin: 0;
     font-family: Verdana, Microsoft JhengHei;
     font-size: 1.5em;
+
+    position: relative;
+    z-index: 0;
+}
+table {
+    border: 1px solid #ccc;
+}
+table tr td {
+    width: 5em;
+    border: 1px solid #ccc;
 }
 input {
     -webkit-writing-mode: horizontal-tb !important;

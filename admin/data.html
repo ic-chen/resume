@@ -67,7 +67,7 @@ $(function(){
         console.log(data)
 
         // 填入資料
-        $('#acct').val(data.acct)
+        $('#acct').text(data.acct)
         $('#psw').val(data.psw)
         $('#name').val(data.name)
         $('#gender').val(data.gender)
@@ -76,9 +76,10 @@ $(function(){
         $('#tel_cell').val(data.tel_cell)
         $('#tel_home').val(data.tel_home)
         $('#addr').val(data.addr)
-        $('#reg_time').val(data.reg_time)
-        $('#upt_time').val(data.upt_time)
+        $('#reg_time').text(data.reg_time)
+        $('#upt_time').text(data.upt_time)
     })
+    // 更新資料
     $('#upt_btn').on('click',function(){
         let psw=$('#psw').val()
         let name=$('#name').val()
@@ -88,8 +89,7 @@ $(function(){
         let tel_cell=$('#tel_cell').val()
         let tel_home=$('#tel_home').val()
         let addr=$('#addr').val()
-        $.post('./api/update_user.php',{acct, psw, name, gender, btd, email, tel_cell, tel_home, addr, reg_time, upt_time},function(){
-
+        $.post('./api/update_user.php',{psw, name, gender, btd, email, tel_cell, tel_home, addr},function(){
         })
     })
 })

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>管理履歷</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+<style>
+#box {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:100%;
+    background:rgba(200,200,200,0.7);
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 99;
+}
+#add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:30%;
+    height: 50%;
+    background: white;
+}
+</style>
+</head>
+<body>
+<table>
+    <tr>
+        <td>顯示</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>FB</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>IG</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>LinkedIn</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>GitHub</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Youtube 頻道</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Twitter</td>
+        <td></td>
+    </tr>
+</table>
+<input type="button" value="新增資料" id="add_btn">
+<input type="button" value="更新資料" id="upt_btn">
+
+<!-- 新增資料的方塊(預設隱藏) -->
+<div id="box">
+    <div id="add">
+    <table>
+        <tr>
+            <td>FB</td>
+            <td><input type="text" name="fb" id="fb"></td>
+        </tr>
+        <tr>
+            <td>IG</td>
+            <td><input type="text" name="ig" id="ig"></td>
+        </tr>
+        <tr>
+            <td>LinkedIn</td>
+            <td><input type="text" name="linkedin" id="linkedin"></td>
+        </tr>
+        <tr>
+            <td>GitHub</td>
+            <td><input type="text" name="github" id="github"></td>
+        </tr>
+        <tr>
+            <td>Youtube 頻道</td>
+            <td><input type="text" name="youtube" id="youtube"></td>
+        </tr>
+        <tr>
+            <td>Twitter</td>
+            <td><input type="text" name="twitter" id="twitter"></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="新增" id="create">
+            </td>
+            <td>
+                <input type="button" value="取消" id="cancel">
+            </td>
+        </tr>
+    </table>
+    </div>
+</div>
+
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script>
+    $('#add_btn').on('click',function(){
+        $('#box').css('display','flex')
+        $('body').css('overflow','hidden')
+    })
+
+    $('#cancel').on('click',function(){
+        $('#box').css('display','none')
+        $('body').css('overflow','auto')
+    })
+</script>
+</body>
+</html>

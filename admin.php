@@ -70,7 +70,7 @@ body {
         padding-top: 2%;
     }
     #content {
-        background: gray;
+        background: lightgoldenrodyellow;
 
         width: 80%;
         height: 100%;
@@ -83,9 +83,17 @@ body {
 <body>
     <div id="admin">
         <div id="menu">
-            <a href="#" onclick="loadpage('admin_data.html')">管理個人資料</a>
+            <a href="#" onclick="loadpage('data.html')">管理個人資料</a>
             <br>
-            <a href="#" onclick="loadpage('admin_resume.html')">管理履歷</a>
+            <a href="#" onclick="loadpage('social_m.html')">管理社群資料</a>
+            <br>
+            <a href="#" onclick="loadpage('edu.html')">管理學歷資料</a>
+            <br>
+            <a href="#" onclick="loadpage('s_intro.html')">管理自我介紹</a>
+            <br>
+            <a href="#" onclick="loadpage('skill.html')">管理技能資料</a>
+            <br>
+            <a href="#" onclick="loadpage('exp.html')">管理工作經歷</a>
             <br>
             <a href="./api/logout.php">登出</a>
         </div>
