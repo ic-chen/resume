@@ -5,32 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>管理履歷</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
 <style>
-#box {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    width:100%;
-    height:100%;
-    background:rgba(200,200,200,0.7);
-    position: absolute;
-    top:0;
-    left:0;
-    z-index: 99;
+.data {
+    height: 100%;
 }
-#add {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width:30%;
-    height: 50%;
-    background: white;
+.card {
+    width: 30em;
+    box-sizing: border-box;
 }
 </style>
 </head>
 <body>
-<table>
+<div class="data d-flex align-items-center">
+<div class="card mx-auto">
+<div class="card-body text-left">
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="inputShow">顯示</label>
+        <input type="text" name="see" class="form-control">
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="inputFB">FB</label>
+        <input type="text" name="fb" class="form-control">
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="inputIG">IG</label>
+        <input type="text" name="ig" class="form-control">
+    </div>
+</div>
+<div class="form-group">
+    <label for="inputLinkedIn">LinkedIn</label>
+    <input type="text" name="linkedin" class="form-control">
+</div>
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="inputGitHub">GitHub</label>
+        <input type="text" name="linkedin" class="form-control">
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="inputGitHub">Youtube 頻道</label>
+        <input type="text" name="youtube" class="form-control">
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="inputGitHub">Twitter</label>
+        <input type="text" name="twitter" class="form-control">
+    </div>
+</div>
+    <input type="button" value="更新資料" id="upt_btn" class="btn btn-primary">
+</div>
+</div>
+</div>
+<!-- <table>
     <tr>
         <td>顯示</td>
         <td></td>
@@ -61,59 +95,19 @@
     </tr>
 </table>
 <input type="button" value="新增資料" id="add_btn">
-<input type="button" value="更新資料" id="upt_btn">
-
-<!-- 新增資料的方塊(預設隱藏) -->
-<div id="box">
-    <div id="add">
-    <table>
-        <tr>
-            <td>FB</td>
-            <td><input type="text" name="fb" id="fb"></td>
-        </tr>
-        <tr>
-            <td>IG</td>
-            <td><input type="text" name="ig" id="ig"></td>
-        </tr>
-        <tr>
-            <td>LinkedIn</td>
-            <td><input type="text" name="linkedin" id="linkedin"></td>
-        </tr>
-        <tr>
-            <td>GitHub</td>
-            <td><input type="text" name="github" id="github"></td>
-        </tr>
-        <tr>
-            <td>Youtube 頻道</td>
-            <td><input type="text" name="youtube" id="youtube"></td>
-        </tr>
-        <tr>
-            <td>Twitter</td>
-            <td><input type="text" name="twitter" id="twitter"></td>
-        </tr>
-        <tr>
-            <td>
-                <input type="button" value="新增" id="create">
-            </td>
-            <td>
-                <input type="button" value="取消" id="cancel">
-            </td>
-        </tr>
-    </table>
-    </div>
-</div>
+<input type="button" value="更新資料" id="upt_btn"> -->
 
 <script src="./js/jquery-3.4.1.min.js"></script>
 <script>
-    $('#add_btn').on('click',function(){
-        $('#box').css('display','flex')
-        $('body').css('overflow','hidden')
-    })
+    // $('#add_btn').on('click',function(){
+    //     $('#box').css('display','flex')
+    //     $('body').css('overflow','hidden')
+    // })
 
-    $('#cancel').on('click',function(){
-        $('#box').css('display','none')
-        $('body').css('overflow','auto')
-    })
+    // $('#cancel').on('click',function(){
+    //     $('#box').css('display','none')
+    //     $('body').css('overflow','auto')
+    // })
 </script>
 </body>
 </html>

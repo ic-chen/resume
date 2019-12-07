@@ -5,144 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>註冊</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
     <script src="./js/jquery-3.4.1.min.js"></script>
 <style>
-    .reg {
-        width: 30em;
-        height: 23em;
-        box-sizing: border-box;
-        margin: auto;
-
-        padding: 1em;
-        border: 1px solid #ccc;
-
-        position: relative;
-        top: 3em;
-    }
-    #acct, #psw, #name, #gender, #btd, #email, #tel_cell, #tel_home, textarea {
-        color: gray;
-        width: 20em;
-    }
-    .btn {
-        text-align: center;
-    }
-    table {
-        margin: auto;
-        border-spacing: 5px;
-    }
+.reg {
+    height: 100vh;
+}
+.card {
+    width: 45em;
+    box-sizing: border-box;
+}
 </style>
 </head>
 <body>
 <form action="./api/reg_user.php" method="post">
-<div class="reg">
-    <table>
-        <tr>
-            <td>帳號：</td>
-            <td>
-                <input type="text" name="acct" id="acct">
-                <input type="hidden" name="acct_def" id="acct_def" value="請輸入英數字元，勿超過20個字元">
-            </td>
-        </tr>
-        <tr>
-            <td>密碼：</td>
-            <td>
-                <input type="text" name="psw" id="psw">
-                <input type="hidden" name="psw_def" id="psw_def" value="請輸入英數或符號字元，勿超過20個字元">
-            </td>
-        </tr>
-        <tr>
-            <td>姓名：</td>
-            <td>
-                <input type="text" name="name" id="name">
-                <input type="hidden" name="name_def" id="name_def" value="請輸入姓名">
-            </td>
-        </tr>
-        <tr>
-            <td>性別：</td>
-            <td>
-                <input type="text" name="gender" id="gender">
-                <input type="hidden" name="gender_def" id="gender_def" value="請輸入「男性」、「女性」或其他敘述">
-            </td>
-        </tr>
-        <tr>
-            <td>生日：</td>
-            <td><input type="date" name="btd" id="btd"></td>
-        </tr>
-        <tr>
-            <td>電子郵件：</td>
-            <td>
-                <input type="text" name="email" id="email">
-                <input type="hidden" name="email_def" id="email_def" value="請輸入電郵，例如「xxx@xxmail.com」">
-            </td>
-        </tr>
-        <tr>
-            <td>行動電話：</td>
-            <td>
-                <input type="text" name="tel_cell" id="tel_cell">
-                <input type="hidden" name="tel_cell_def" id="tel_cell_def" value="請以連字號分隔，例如「0900-111-222」">
-            </td>
-        </tr>
-        <tr>
-            <td>家中電話：</td>
-            <td>
-                <input type="text" name="tel_home" id="tel_home">
-                <input type="hidden" name="tel_home_def" id="tel_home_def" value="請以連字號分隔，例如「(02)9999-1122」">
-            </td>
-        </tr>
-        <tr>
-            <td>居住地址：</td>
-            <td>
-                <textarea name="addr" id="addr"></textarea>
-                <input type="hidden" name="addr_def" id="addr_def" value="請輸入居住地址">
-            </td>
-        </tr>
-    </table>
-    <br>
-    <div class="btn">
-    <input type="submit" id="submit" value="註冊">
-    <input type="reset" value="清除">
+<div class="reg d-flex align-items-center">
+<div class="card mx-auto">
+<div class="card-body text-left">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputAcct">帳號</label>
+            <input type="text" name="acct" id="acct" class="form-control" placeholder="請輸入英數字元，勿超過20個字元">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPassword">密碼</label>
+            <input type="text" name="psw" id="psw" class="form-control" placeholder="請輸入英數或符號字元，勿超過20個字元">
+        </div>
     </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputName">姓名</label>
+            <input type="text" name="name" id="name" class="form-control" placeholder="請輸入姓名">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputGender">性別</label>
+            <input type="text" name="gender" id="gender" class="form-control" placeholder="請輸入「男性」、「女性」或其他敘述">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputBtd">生日</label>
+            <input type="date" name="btd" id="btd" class="form-control">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputEmail">電子郵件</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="請輸入電郵，例如「xxx@xxmail.com」">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputCell">行動電話</label>
+            <input type="text" name="tel_cell" id="tel_cell" class="form-control" placeholder="請以連字號分隔，例如「0900-111-222」">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputHome">家中電話</label>
+            <input type="text" name="tel_home" id="tel_home" class="form-control" placeholder="請以連字號分隔，例如「(02)9999-1122」">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">地址</label>
+        <input type="text" name="addr" id="addr" class="form-control" placeholder="請輸入居住地址">
+    </div>
+        <button type="submit" class="btn btn-primary">註冊</button>
+        <button type="reset" class="btn btn-primary" id="reset">清除</button>
 </div>
-</form>
+</div>
+</div>
 
 <script>
-    // 點擊時清除內容
-    function clk(sel,str){
-        $(sel).val(str)
-        $(sel).on('blur',function(){
-            if($(this).val()==''){
-                $(this).val(str).css('color','gray')
-            }
-        })
-        $(sel).on('focus',function(){
-            if($(this).val()==str){
-                $(this).val('').css('color','black')
-            }
-        })
-    }
-    // let acct_def='請輸入英數字元，勿超過20個字元'
-    // let psw_def='請輸入英數或符號字元，勿超過20個字元'
-    // let name_def='請輸入姓名'
-    // let gender_def='請輸入「男性」、「女性」或其他敘述'
-    // let email_def='請輸入電郵，例如「xxx@xxmail.com」'
-    // let tel_cell_def='請以連字號分隔，例如「0900-111-222」'
-    // let tel_home_def='請以連字號分隔，例如「(02)9999-1122」'
-    // let addr_def='請輸入居住地址'
-    clk('#acct',$('#acct_def').val())
-    clk('#psw',$('#psw_def').val())
-    clk('#name',$('#name_def').val())
-    clk('#gender',$('#gender_def').val())
-    clk('#email',$('#email_def').val())
-    clk('#tel_cell',$('#tel_cell_def').val())
-    clk('#tel_home',$('#tel_home_def').val())
-    clk('#addr',$('#addr_def').val())
-
-    // $('#submit').on('click',function(){
-    //     $.post('./api/reg_user.php',{acct_def, psw_def, name_def, gender_def, email_def, tel_cell_def, tel_home_def, addr_def},function(){
-
-    //     })
-    // })
 </script>
 </body>
 </html>

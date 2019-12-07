@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>後台管理</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
-<!-- 設定未登入或未註冊時的訊息 -->
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="./js/popper.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<!--  設定未登入或未註冊時的訊息  -->
 <?php
 session_start();
 if(!isset($_SESSION['login'])){
@@ -49,31 +52,13 @@ body {
     ?>
 <!-- 設定一般樣式 -->
 <style>
-    #admin {
+    .admin {
         width: 100vw;
         height: 100vh;
-
-        background: gray;
     }
-    #menu {
-        background: cadetblue;
-        
-        width: 20%;
-        height: 100%;
-        box-sizing: border-box;
-
-        float:left;
-
-        text-align: left;
-        line-height: 2em;
-        padding-left: 2%;
-        padding-top: 2%;
-    }
-    #content {
-        background: lightgoldenrodyellow;
-
-        width: 80%;
-        height: 100%;
+    .content {
+        width: 100%;
+        height: 90%;
         box-sizing: border-box;
 
         float:left;
@@ -81,37 +66,52 @@ body {
 </style>
 </head>
 <body>
-    <div id="admin">
-        <div id="menu">
-            <a href="#" onclick="loadpage('data.html')">管理個人資料</a>
-            <br>
-            <a href="#" onclick="loadpage('social_m.html')">管理社群資料</a>
-            <br>
-            <a href="#" onclick="loadpage('edu.html')">管理學歷資料</a>
-            <br>
-            <a href="#" onclick="loadpage('s_intro.html')">管理自我介紹</a>
-            <br>
-            <a href="#" onclick="loadpage('skill.html')">管理技能資料</a>
-            <br>
-            <a href="#" onclick="loadpage('exp.html')">管理工作經歷</a>
-            <br>
-            <a href="./api/logout.php">登出</a>
-        </div>
-        <div id="content">
+<div class="admin bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">管理</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#" onclick="loadpage('data.html')">個人資料</a>
+            <a class="dropdown-item" href="#" onclick="loadpage('social_m.html')">社群資料</a>
+            <a class="dropdown-item" href="#" onclick="loadpage('edu.html')">學歷資料</a>
+            <a class="dropdown-item" href="#" onclick="loadpage('s_intro.html')">自我介紹</a>
+            <a class="dropdown-item" href="#" onclick="loadpage('skill.html')">技能資料</a>
+            <a class="dropdown-item" href="#" onclick="loadpage('exp.html')">工作經歷</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">預覽履歷</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./api/logout.php">登出</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="content bg-light text-dark overflow-auto">
+
 <?php
 if($_SESSION['login']==1){
     echo "歡迎登入！請從右方選單選擇要執行的操作。";
 }
 ?>
-        </div>
     </div>
+  </div>
 
-<script src="./js/jquery-3.4.1.min.js"></script>
 <script>
 $(function(){
     // 點選載入頁面
     loadpage=(page)=>{
-    $('#content').load('./admin/'+page)
+    $('.content').load('./admin/'+page)
     }
 })
 </script>

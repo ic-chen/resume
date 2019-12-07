@@ -5,58 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>管理個人資料</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+<style>
+.data {
+    height: 100%;
+}
+.card {
+    width: 40em;
+    box-sizing: border-box;
+}
+</style>
 </head>
 <body>
-    <table>
-        <tr>
-            <td>帳號：</td>
-            <td name="acct" id="acct"></td>
-        </tr>
-        <tr>
-            <td>密碼：</td>
-            <td><input type="text" name="psw" id="psw"></td>
-        </tr>
-        <tr>
-            <td>姓名：</td>
-            <td><input type="text" name="name" id="name"></td>
-        </tr>
-        <tr>
-            <td>性別：</td>
-            <td><input type="text" name="gender" id="gender"></td>
-        </tr>
-        <tr>
-            <td>生日：</td>
-            <td><input type="text" name="btd" id="btd"></td>
-        </tr>
-        <tr>
-            <td>電子郵件：</td>
-            <td><input type="text" name="email" id="email"></td>
-        </tr>
-        <tr>
-            <td>行動電話：</td>
-            <td><input type="text" name="tel_cell" id="tel_cell"></td>
-        </tr>
-        <tr>
-            <td>家中電話：</td>
-            <td><input type="text" name="tel_home" id="tel_home"></td>
-        </tr>
-        <tr>
-            <td>地址：</td>
-            <td>
-                <textarea name="addr" id="addr"></textarea>
-            </td>
-        </tr>
-        <tr>
-            <td>註冊時間：</td>
-            <td id="reg_time"></td>
-        </tr>
-        <tr>
-            <td>更新時間：</td>
-            <td id="upt_time"></td>
-        </tr>
-    </table>
-<input type="button" value="更新資料" id="upt_btn">
+<div class="data d-flex align-items-center mt-10">
+<div class="card mx-auto">
+<div class="card-body text-left">
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="inputAcct">帳號</label>
+        <input type="text" name="acct" id="acct" class="form-control" disabled>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="inputPassword">密碼</label>
+        <input type="text" name="psw" id="psw" class="form-control">
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-5">
+        <label for="inputName">姓名</label>
+        <input type="text" name="name" id="name" class="form-control">
+    </div>
+    <div class="form-group col-md-2">
+        <label for="inputGender">性別</label>
+        <input type="text" name="gender" id="gender" class="form-control">
+    </div>
+    <div class="form-group col-md-5">
+        <label for="inputBtd">生日</label>
+        <input type="date" name="btd" id="btd" class="form-control">
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="inputEmail">電子郵件</label>
+        <input type="email" name="email" id="email" class="form-control">
+    </div>
+    <div class="form-group col-md-3">
+        <label for="inputCell">行動電話</label>
+        <input type="text" name="tel_cell" id="tel_cell" class="form-control">
+    </div>
+    <div class="form-group col-md-3">
+        <label for="inputHome">家中電話</label>
+        <input type="text" name="tel_home" id="tel_home" class="form-control">
+    </div>
+</div>
+<div class="form-group">
+    <label for="inputAddress">地址</label>
+    <input type="text" name="addr" id="addr" class="form-control">
+</div>
+<fieldset disabled>
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="inputRegTime">註冊時間</label>
+        <input type="text" id="reg_time" class="form-control">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="inputUptTime">更新時間</label>
+        <input type="text" id="upt_time" class="form-control">
+    </div>
+</div>
+</fieldset>
+    <input type="button" value="更新資料" id="upt_btn" class="btn btn-primary">
+</div>
+</div>
+</div>
 
 <script src="./js/jquery-3.4.1.min.js"></script>
 <script>
@@ -67,7 +88,7 @@ $(function(){
         console.log(data)
 
         // 填入資料
-        $('#acct').text(data.acct)
+        $('#acct').val(data.acct)
         $('#psw').val(data.psw)
         $('#name').val(data.name)
         $('#gender').val(data.gender)
@@ -76,8 +97,8 @@ $(function(){
         $('#tel_cell').val(data.tel_cell)
         $('#tel_home').val(data.tel_home)
         $('#addr').val(data.addr)
-        $('#reg_time').text(data.reg_time)
-        $('#upt_time').text(data.upt_time)
+        $('#reg_time').val(data.reg_time)
+        $('#upt_time').val(data.upt_time)
     })
     // 更新資料
     $('#upt_btn').on('click',function(){
