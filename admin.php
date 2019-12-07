@@ -53,19 +53,20 @@ body {
 <!-- 設定一般樣式 -->
 <style>
     .admin {
-        width: 100vw;
-        height: 100vh;
+      width: 100vw;
+      height: 100vh;
     }
     .content {
-        width: 100%;
-        height: 90%;
-        box-sizing: border-box;
+      width: 100%;
+      height: 90%;
+      box-sizing: border-box;
 
-        float:left;
+      float:left;
     }
 </style>
 </head>
 <body>
+  <!-- 導覽列 -->
 <div class="admin bg-light">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -113,6 +114,16 @@ $(function(){
     loadpage=(page)=>{
     $('.content').load('./admin/'+page)
     }
+
+// 返回後回到原頁面
+<?php
+if($_GET['p']=="sm"){
+?>
+loadpage('social_m.html')
+<?php
+}
+?>
+
 })
 </script>
 </body>

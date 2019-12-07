@@ -17,97 +17,119 @@
 </style>
 </head>
 <body>
-<div class="data d-flex align-items-center">
-<div class="card mx-auto">
+<!-- 顯示及更新社群資料 -->
+<div class="data d-flex justify-content-center align-items-center">
+<div class="card">
 <div class="card-body text-left">
 <div class="form-row">
     <div class="form-group col-md-12">
-        <label for="inputShow">顯示</label>
-        <input type="text" name="see" class="form-control">
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" name="see" id="see">
+            <label class="custom-control-label" for="see">切換顯示</label>
+        </div>
     </div>
 </div>
 <div class="form-row">
     <div class="form-group col-md-12">
         <label for="inputFB">FB</label>
-        <input type="text" name="fb" class="form-control">
+        <input type="text" data-id="fb" class="fb form-control">
     </div>
 </div>
 <div class="form-row">
     <div class="form-group col-md-12">
         <label for="inputIG">IG</label>
-        <input type="text" name="ig" class="form-control">
+        <input type="text" data-id="ig" class="ig form-control">
     </div>
 </div>
 <div class="form-group">
     <label for="inputLinkedIn">LinkedIn</label>
-    <input type="text" name="linkedin" class="form-control">
+    <input type="text" data-id="linkedin" class="linkedin form-control">
 </div>
 <div class="form-row">
     <div class="form-group col-md-12">
         <label for="inputGitHub">GitHub</label>
-        <input type="text" name="linkedin" class="form-control">
+        <input type="text" data-id="github" class="github form-control">
     </div>
 </div>
 <div class="form-row">
     <div class="form-group col-md-12">
-        <label for="inputGitHub">Youtube 頻道</label>
-        <input type="text" name="youtube" class="form-control">
+        <label for="inputGitHub">Youtube</label>
+        <input type="text" data-id="youtube" class="youtube form-control">
     </div>
 </div>
 <div class="form-row">
     <div class="form-group col-md-12">
         <label for="inputGitHub">Twitter</label>
-        <input type="text" name="twitter" class="form-control">
+        <input type="text" data-id="twitter" class="twitter form-control">
     </div>
 </div>
-    <input type="button" value="更新資料" id="upt_btn" class="btn btn-primary">
+    <input type="button" value="新增" id="add_btn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    <input type="button" value="更新" id="upt_btn" class="btn btn-primary">
 </div>
 </div>
 </div>
-<!-- <table>
-    <tr>
-        <td>顯示</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>FB</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>IG</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>LinkedIn</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>GitHub</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Youtube 頻道</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Twitter</td>
-        <td></td>
-    </tr>
-</table>
-<input type="button" value="新增資料" id="add_btn">
-<input type="button" value="更新資料" id="upt_btn"> -->
+
+<!-- 新增社群資料的 Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">新增社群資料</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form action="./api/add_social_m.php" method="post">
+        <div class="modal-body">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputFB">FB</label>
+                    <input type="text" name="fb" class="form-control">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputIG">IG</label>
+                    <input type="text" name="ig" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputLinkedIn">LinkedIn</label>
+                <input type="text" name="linkedin" class="form-control">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputGitHub">GitHub</label>
+                    <input type="text" name="github" class="form-control">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputYoutube">Youtube</label>
+                    <input type="text" name="youtube" class="form-control">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputTwitter">Twitter</label>
+                    <input type="text" name="twitter" class="form-control">
+                </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <input type="submit" class="btn btn-primary" value="新增">
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
 
 <script src="./js/jquery-3.4.1.min.js"></script>
 <script>
-    // $('#add_btn').on('click',function(){
-    //     $('#box').css('display','flex')
-    //     $('body').css('overflow','hidden')
-    // })
-
-    // $('#cancel').on('click',function(){
-    //     $('#box').css('display','none')
-    //     $('body').css('overflow','auto')
-    // })
+$(function(){
+    console.log($('.twitter').data('id'))
+})
 </script>
 </body>
 </html>
