@@ -1,7 +1,7 @@
 <?php
 include_once "db_info.php";
 
-$see=($_POST['upt_chked']==true)?1:0;
+$see=($_POST['upt_chked']=="true")?1:0;
 $fb=$_POST['upt_fb'];
 $ig=$_POST['upt_ig'];
 $linkedin=$_POST['upt_linkedin'];

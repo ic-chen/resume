@@ -26,9 +26,11 @@ $s_m_github=$value['github'];
 $s_m_youtube=$value['youtube'];
 $s_m_twitter=$value['twitter'];
 $num++;
-// echo "<form action='' method='post'>";
+
 echo "<div class='card m-1'>";
 echo "<div class='card-body text-left'>";
+
+// 第一列
 echo "<div class='form-row'>";
 echo "    <div class='form-group col-md-12'>";
 echo "        <div class='form-check'>";
@@ -37,46 +39,61 @@ echo "            <label class='form-check-label' for='see$num'>顯示</label>";
 echo "        </div>";
 echo "    </div>";
 echo "</div>";
+
+// 第二列
 echo "<div class='form-row'>";
 echo "    <div class='form-group col-md-12'>";
 echo "        <label for='inputFB'>FB</label>";
-echo "        <input type='text' class='fb form-control' value='$s_m_fb'>";
+echo "        <input type='text' class='form-control' value='$s_m_fb'>";
 echo "    </div>";
 echo "</div>";
+
+// 第三列
 echo "<div class='form-row'>";
 echo "    <div class='form-group col-md-12'>";
 echo "        <label for='inputIG'>IG</label>";
-echo "        <input type='text' class='ig form-control' value='$s_m_ig'>";
+echo "        <input type='text' class='form-control' value='$s_m_ig'>";
 echo "    </div>";
 echo "</div>";
+
+// 第四列
 echo "<div class='form-row'>";
 echo "    <div class='form-group col-md-12'>";
 echo "        <label for='inputLinkedIn'>LinkedIn</label>";
-echo "        <input type='text' class='linkedin form-control' value='$s_m_linkedin'>";
+echo "        <input type='text' class='form-control' value='$s_m_linkedin'>";
 echo "    </div>";
 echo "</div>";
+
+// 第五列
 echo "<div class='form-row'>";
 echo "    <div class='form-group col-md-12'>";
 echo "        <label for='inputGitHub'>GitHub</label>";
-echo "        <input type='text' class='github form-control' value='$s_m_github'>";
+echo "        <input type='text' class='form-control' value='$s_m_github'>";
 echo "    </div>";
 echo "</div>";
+
+// 第六列
 echo "<div class='form-row'>";
 echo "    <div class='form-group col-md-12'>";
 echo "        <label for='inputYoutube'>Youtube</label>";
-echo "        <input type='text' class='youtube form-control' value='$s_m_youtube'>";
+echo "        <input type='text' class='form-control' value='$s_m_youtube'>";
 echo "    </div>";
 echo "</div>";
+
+// 第七列
 echo "<div class='form-row'>";
 echo "    <div class='form-group col-md-12'>";
 echo "        <label for='inputTwitter'>Twitter</label>";
-echo "        <input type='text' class='twitter form-control' value='$s_m_twitter'>";
+echo "        <input type='text' class='form-control' value='$s_m_twitter'>";
 echo "    </div>";
 echo "</div>";
+
+// 按鈕列
 echo "    <input type='button' value='更新' class='upt-btn btn btn-primary' id='$s_m_id'>";
 echo "    <input type='button' value='刪除' class='del-btn btn btn-primary'>";
+
+// 收尾標籤
 echo "</div>";
 echo "</div>";
-// echo "</form>";
 }
 ?>

@@ -117,13 +117,17 @@ $(function(){
 
 // 返回後回到原頁面
 <?php
-if(!empty($_GET['p'])){
-  if($_GET['p']=="sm"){
-?>
-loadpage('social_m.html')
-<?php
+  switch($_GET['p']){
+    case "sm":
+?>loadpage('social_m.html')<?php
+    break;
+    case "ed":
+?>loadpage('edu.html')<?php
+    break;
+
+    default:
+    break;
   }
-}
 ?>
 
 })
