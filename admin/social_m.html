@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/bootstrap.css">
 <style>
 .data {
-    height: 100%;
+    /* height: 100%; */
 }
 .card {
     width: 30em;
@@ -17,56 +17,14 @@
 </style>
 </head>
 <body>
-<!-- 顯示及更新社群資料 -->
-<div class="data d-flex justify-content-center align-items-center">
-<div class="card">
-<div class="card-body text-left">
-<div class="form-row">
-    <div class="form-group col-md-12">
-        <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" name="see" id="see">
-            <label class="custom-control-label" for="see">切換顯示</label>
+<!-- 顯示及新增社群資料 -->
+<div class="data flex-wrap d-flex justify-content-start">
+    <div class="w-100 row justify-content-center">
+        <div class='col-1'>
+            <input type='button' value='新增' class='btn m-3 btn-primary' data-toggle='modal' data-target='#exampleModalCenter'>
         </div>
     </div>
-</div>
-<div class="form-row">
-    <div class="form-group col-md-12">
-        <label for="inputFB">FB</label>
-        <input type="text" data-id="fb" class="fb form-control">
-    </div>
-</div>
-<div class="form-row">
-    <div class="form-group col-md-12">
-        <label for="inputIG">IG</label>
-        <input type="text" data-id="ig" class="ig form-control">
-    </div>
-</div>
-<div class="form-group">
-    <label for="inputLinkedIn">LinkedIn</label>
-    <input type="text" data-id="linkedin" class="linkedin form-control">
-</div>
-<div class="form-row">
-    <div class="form-group col-md-12">
-        <label for="inputGitHub">GitHub</label>
-        <input type="text" data-id="github" class="github form-control">
-    </div>
-</div>
-<div class="form-row">
-    <div class="form-group col-md-12">
-        <label for="inputGitHub">Youtube</label>
-        <input type="text" data-id="youtube" class="youtube form-control">
-    </div>
-</div>
-<div class="form-row">
-    <div class="form-group col-md-12">
-        <label for="inputGitHub">Twitter</label>
-        <input type="text" data-id="twitter" class="twitter form-control">
-    </div>
-</div>
-    <input type="button" value="新增" id="add_btn" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-    <input type="button" value="更新" id="upt_btn" class="btn btn-primary">
-</div>
-</div>
+    <!-- 顯示及更新 -->
 </div>
 
 <!-- 新增社群資料的 Modal -->
@@ -128,7 +86,34 @@
 <script src="./js/jquery-3.4.1.min.js"></script>
 <script>
 $(function(){
-    console.log($('.twitter').data('id'))
+    // console.log($('.twitter').data('id'))
+    $.get('./api/query_social_m.php',{},function(echo){
+        $('.data').append(echo)
+
+        // 更新資料
+        $('input.upt-btn').on('click',function(){
+            let dom=$(this).parent().children().children().find('input')
+            let upt_chked=dom.eq(0).prop('checked')
+            let upt_fb=dom.eq(1).val()
+            let upt_ig=dom.eq(2).val()
+            let upt_linkedin=dom.eq(3).val()
+            let upt_github=dom.eq(4).val()
+            let upt_youtube=dom.eq(5).val()
+            let upt_twitter=dom.eq(6).val()
+            let upt_id=$(this).attr('id')
+            // console.log($(this).attr('id'))
+            $.post('./api/update_social_m.php',{upt_chked, upt_fb, upt_ig, upt_linkedin, upt_github, upt_youtube, upt_twitter, upt_id},function(){
+            })
+        })
+
+        // 刪除資料
+        $('input.del-btn').on('click',function(){
+            let del_id=($(this).prev().attr('id'))
+            $.post('./api/del_social_m.php',{del_id},function(){
+            })
+            window.location.replace("./admin.php?p=sm")
+        })
+    })
 })
 </script>
 </body>

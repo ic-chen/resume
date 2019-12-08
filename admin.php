@@ -117,10 +117,12 @@ $(function(){
 
 // 返回後回到原頁面
 <?php
-if($_GET['p']=="sm"){
+if(!empty($_GET['p'])){
+  if($_GET['p']=="sm"){
 ?>
 loadpage('social_m.html')
 <?php
+  }
 }
 ?>
 
