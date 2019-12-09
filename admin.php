@@ -84,7 +84,7 @@ body {
             <a class="dropdown-item" href="#" onclick="loadpage('social_m.html')">社群資料</a>
             <a class="dropdown-item" href="#" onclick="loadpage('edu.html')">學歷資料</a>
             <a class="dropdown-item" href="#" onclick="loadpage('s_intro.html')">自我介紹</a>
-            <a class="dropdown-item" href="#" onclick="loadpage('skill.html')">技能資料</a>
+            <a class="dropdown-item" href="#" onclick="loadpage('skill.html')">工作技能</a>
             <a class="dropdown-item" href="#" onclick="loadpage('exp.html')">工作經歷</a>
           </div>
         </li>
@@ -117,6 +117,7 @@ $(function(){
 
 // 返回後回到原頁面
 <?php
+if(!empty($_GET['p'])){
   switch($_GET['p']){
     case "sm":
 ?>loadpage('social_m.html')<?php
@@ -124,10 +125,20 @@ $(function(){
     case "ed":
 ?>loadpage('edu.html')<?php
     break;
+    case "si":
+?>loadpage('s_intro.html')<?php
+    break;
+    case "sk":
+?>loadpage('skill.html')<?php
+    break;
+    case "ex":
+?>loadpage('exp.html')<?php
+    break;
 
     default:
     break;
   }
+}
 ?>
 
 })

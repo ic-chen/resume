@@ -60,7 +60,7 @@ switch($grad_st){
     echo "<option selected>修業</option>";
     echo "<option>結業</option>";
     echo "<option>畢業</option>";
-    echo "<option>肆業<</option>";
+    echo "<option>肆業</option>";
     break;
     case "結業":
     echo "<option selected>結業</option>";

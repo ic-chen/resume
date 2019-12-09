@@ -17,9 +17,7 @@
 <!-- 顯示及新增資料 -->
 <div class="data flex-wrap d-flex justify-content-start">
     <div class="w-100 row justify-content-center">
-        <div class='col-1'>
-            <input type='button' value='新增' class='btn m-3 btn-primary' data-toggle='modal' data-target='#exampleModalCenter'>
-        </div>
+        <input type='button' value='新增學歷資料' class='btn m-3 btn-primary' data-toggle='modal' data-target='#exampleModalCenter'>
     </div>
     <!-- 顯示及更新 -->
 </div>
@@ -75,7 +73,6 @@
 <script src="./js/jquery-3.4.1.min.js"></script>
 <script>
 $(function(){
-    // console.log($('.twitter').data('id'))
     $.get('./api/query_edu.php',{},function(echo){
         $('.data').append(echo)
 
@@ -94,12 +91,12 @@ $(function(){
         })
 
         // 刪除資料
-        // $('input.del-btn').on('click',function(){
-        //     let del_id=($(this).prev().attr('id'))
-        //     $.post('./api/del_social_m.php',{del_id},function(){
-        //     })
-        //     window.location.replace("./admin.php?p=sm")
-        // })
+        $('input.del-btn').on('click',function(){
+            let del_id=($(this).prev().attr('id'))
+            $.post('./api/del_edu.php',{del_id},function(){
+            })
+            window.location.replace("./admin.php?p=ed")
+        })
     })
 })
 </script>
