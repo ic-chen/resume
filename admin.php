@@ -86,6 +86,7 @@ body {
             <a class="dropdown-item" href="#" onclick="loadpage('s_intro.html')">自我介紹</a>
             <a class="dropdown-item" href="#" onclick="loadpage('skill.html')">工作技能</a>
             <a class="dropdown-item" href="#" onclick="loadpage('exp.html')">工作經歷</a>
+            <a class="dropdown-item" href="#" onclick="loadpage('reqs.html')">求職條件</a>
           </div>
         </li>
         <li class="nav-item">
@@ -133,6 +134,9 @@ if(!empty($_GET['p'])){
     break;
     case "ex":
 ?>loadpage('exp.html')<?php
+    break;
+    case "re":
+?>loadpage('reqs.html')<?php
     break;
 
     default:
