@@ -37,19 +37,19 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="inputReqs_posit">期望職務</label>
-                    <input type="text" name="grad_t" class="form-control">
+                    <input type="text" name="reqs_posit" class="form-control">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
-                    <label for="reqs_jd">工作描述</label>
+                    <label for="inputReqs_jd">工作描述</label>
                     <textarea class="form-control" name="reqs_jd" rows="3"></textarea>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12" id="reqs_time1">
                     <label for="inputReqs_time1">可上班時間</label>
-                    <select id="inputReqs_time1" name="reqs_time" class="form-control">
+                    <select id="inputReqs_time1" name="reqs_time1" class="form-control">
                         <option selected>隨時</option>
                         <option>錄取後一週內</option>
                         <option>錄取後兩週內</option>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="form-group col-md-12" id="reqs_time2" style="display:none;">
                     <label for="inputReqs_time2">請輸入可上班時間</label>
-                    <input type="text" name="reqs_time" id="inputReqs_time2" class="form-control">
+                    <input type="text" name="reqs_time2" id="inputReqs_time2" class="form-control">
                 </div>
             </div>
             <div class="form-row">
@@ -94,26 +94,30 @@
 <script src="./js/jquery-3.4.1.min.js"></script>
 <script>
 $(function(){
-    // 選擇「其他」時顯示輸入欄位
-    $('#inputReqs_time1').on('change',function(){
-        if($('#inputReqs_time1').val()=='其他') {
-            $('#reqs_time2').show()
-            $('#reqs_time1').hide()
-        } else {
-            $('#reqs_time2').hide()
-        }
-        // 判斷離開輸入欄位時是否有輸入，並隱藏選項
-        $('#inputReqs_time2').on('blur',function(){
-        if($('#inputReqs_time2').val()==''){
-            $('#reqs_time2').hide()
-            $('#reqs_time1').show()
-            $('#inputReqs_time1').val("隨時")
-        }
-        })
-    })
 
-    // $.get('./api/query_edu.php',{},function(echo){
-    //     $('.data').append(echo)
+// 選擇「其他」時顯示輸入欄位
+$('#inputReqs_time1').on('change',function(){
+    if($('#inputReqs_time1').val()=='其他') {
+        $('#reqs_time2').show()
+        $('#reqs_time1').hide()
+    } else {
+        $('#reqs_time1').show()
+        $('#reqs_time2').hide()
+    }
+    // 判斷離開輸入欄位時是否有輸入，並隱藏選項
+    $('#inputReqs_time2').on('blur',function(){
+    if($('#inputReqs_time2').val()==''){
+        $('#reqs_time2').hide()
+        $('#reqs_time1').show()
+        $('#inputReqs_time1').val('隨時')
+    }
+    })
+})
+
+    $.get('./api/query_reqs.php',{},function(echo){
+        $('.data').append(echo)
+
+        // 選擇「其他」時顯示輸入欄位
 
     //     // 更新資料
     //     $('input.upt-btn').on('click',function(){
@@ -136,7 +140,7 @@ $(function(){
     //         })
     //         window.location.replace("./admin.php?p=ed")
     //     })
-    // })
+    })
 })
 </script>
 </body>

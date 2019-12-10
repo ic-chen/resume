@@ -78,7 +78,7 @@ body {
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">管理</a>
+            aria-haspopup="true" aria-expanded="false">管理履歷</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#" onclick="loadpage('data.html')">個人資料</a>
             <a class="dropdown-item" href="#" onclick="loadpage('social_m.html')">社群資料</a>
@@ -86,8 +86,10 @@ body {
             <a class="dropdown-item" href="#" onclick="loadpage('s_intro.html')">自我介紹</a>
             <a class="dropdown-item" href="#" onclick="loadpage('skill.html')">工作技能</a>
             <a class="dropdown-item" href="#" onclick="loadpage('exp.html')">工作經歷</a>
-            <a class="dropdown-item" href="#" onclick="loadpage('reqs.html')">求職條件</a>
           </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="loadpage('reqs.html')">設定求職條件</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">預覽履歷</a>
