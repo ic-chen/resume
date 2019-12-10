@@ -1,74 +1,8 @@
-<?php
-include_once "db_info.php";
-session_start();
-
-$id=$_SESSION['id'];
-
-$sql="SELECT * FROM `user` WHERE `id`='$id'";
-
-$data=$pdo->query($sql)->fetch();
-
-$acct=$data['acct'];
-
-$sql="SELECT * FROM `edu` WHERE `acct`='$acct'";
-
-$edu=$pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-
-$num=0;
-foreach($edu as $value){
-$edu_id=$value['id'];
-$grad_t=$value['grad_t'];
-$checked=($value['see']==1)?"checked":"";
-$sch=$value['sch'];
-$dept=$value['dept'];
-$grad_st=$value['grad_st'];
-$num++;
-
-echo "<div class='card m-1'>";
-echo "<div class='card-body text-left'>";
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <div class='form-check'>";
-echo "            <input class='form-check-input' type='checkbox' id='see$num' $checked>";
-echo "            <label class='form-check-label' for='see$num'>顯示</label>";
-echo "        </div>";
-echo "    </div>";
-echo "</div>";
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <label for='inputGrad_t'>就讀時間</label>";
-echo "        <input type='text' class='form-control' value='$grad_t'>";
-echo "    </div>";
-echo "</div>";
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <label for='inputSch'>學校</label>";
-echo "        <input type='text' class='form-control' value='$sch'>";
-echo "    </div>";
-echo "</div>";
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <label for='inputDept'>科系</label>";
-echo "        <input type='text' class='form-control' value='$dept'>";
-echo "    </div>";
-echo "</div>";
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <label for='inputGrad_st'>畢業狀態</label>";
-echo "        <input type='text' class='form-control' value='$grad_st'>";
-
-<select id='inputGrad_st' name='grad_st' class='form-control'>
-<option selected>畢業</option>
-<option>肆業</option>
-<option>修業</option>
-<option>結業</option>
-</select>
-
-echo "    </div>";
-echo "</div>";
-echo "    <input type='button' value='更新' class='upt-btn btn btn-primary' id='$edu_id'>";
-echo "    <input type='button' value='刪除' class='del-btn btn btn-primary'>";
-echo "</div>";
-echo "</div>";
-}
-?>
+0 input
+1 input
+0 textarea
+0 select
+2 input
+3 input
+1 select
+4 input

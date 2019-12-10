@@ -68,9 +68,9 @@ echo "</div>";
 // 排列選項
 echo "<div class='form-row'>";
 // 預設顯示
-echo "  <div class='form-group col-md-12' id='reqs_t1'>";
-echo "    <label for='inputReqs_t1'>可上班時間</label>";
-echo "    <select id='inputReqs_t1' class='form-control'>";
+echo "  <div class='form-group col-md-12' id='reqs_t$num'>";
+echo "    <label for='inputReqs_t$num'>可上班時間</label>";
+echo "    <select id='inputReqs_t$num' class='inputReqs_t1 form-control'>";
 echo "    <option selected>$reqs_time</option>";
 switch($reqs_time){
     case "錄取後一週內":
@@ -118,9 +118,9 @@ switch($reqs_time){
 echo "    </select>";
 echo "  </div>";
 // 選「其他」後顯示，預設隱藏
-echo "  <div class='form-group col-md-12' id='reqs_t2' style='display:none;'>";
-echo "    <label for='inputReqs_t2'>可上班時間</label>";
-echo "    <input type='text' id='inputReqs_t2' class='form-control'>";
+echo "  <div class='form-group col-md-12' id='reqs_t0$num' style='display:none;'>";
+echo "    <label for='inputReqs_t0$num'>可上班時間</label>";
+echo "    <input type='text' id='inputReqs_t0$num' class='inputReqs_t2 form-control'>";
 echo "  </div>";
 echo "</div>";
 
@@ -135,8 +135,8 @@ echo "</div>";
 // 第六列
 echo "<div class='form-row'>";
 echo "    <div class='form-group col-md-6'>";
-echo "        <label for='inputReqs_type'>期望工作性質</label>";
-echo "        <select id='inputReqs_type' class='form-control'>";
+echo "        <label for='inputReqs_type$num'>期望工作性質</label>";
+echo "        <select id='inputReqs_type$num' class='form-control'>";
 echo "        <option selected>$reqs_type</option>";
 // 放入選項
 switch($reqs_type){
@@ -164,4 +164,5 @@ echo "    <input type='button' value='刪除' class='del-btn btn btn-primary'>";
 echo "</div>";
 echo "</div>";
 }
+
 ?>

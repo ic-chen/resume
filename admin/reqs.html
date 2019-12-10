@@ -113,33 +113,68 @@ $('#inputReqs_time1').on('change',function(){
     }
     })
 })
-
+    
+// 取得資料
     $.get('./api/query_reqs.php',{},function(echo){
-        $('.data').append(echo)
+    $('.data').append(echo)
+    
+    // 選擇「其他」時顯示輸入欄位
+    $('select.inputReqs_t1').on('change',function(){
+        let id1=$(this).parent().attr('id')
+        let id1_id=$(this).attr('id')
+        let id2=$(this).parent().next().attr('id')
+        let id2_id=$(this).parent().next().find('input').attr('id')
+        if($(`#${id1_id}`).val()=='其他') {
+            $(`#${id2}`).show()
+            $(`#${id1}`).hide()
+        } else {
+            $(`#${id1}`).show()
+            $(`#${id2}`).hide()
+        }
+        // 判斷離開輸入欄位時是否有輸入，並隱藏選項
+        $(`#${id2_id}`).on('blur',function(){
+        if($(`#${id2_id}`).val()==''){
+            $(`#${id2}`).hide()
+            $(`#${id1}`).show()
+            $(`#${id1_id}`).val('隨時')
+        }
+        })
+    })
 
-        // 選擇「其他」時顯示輸入欄位
+    // 更新資料
+    $('input.upt-btn').on('click',function(){
+        let dom=$(this).parent().children().children()
+        let upt_chked=dom.find('input').eq(0).prop('checked')
+        let upt_reqs_posit=dom.find('input').eq(1).val()
+        let upt_reqs_jd=dom.find('textarea').eq(0).val()
+        let upt_reqs_time1=dom.find('select').eq(0).val()
+        let upt_reqs_time2=dom.find('input').eq(2).val()
+        let upt_reqs_time=(upt_reqs_time1=='其他')?`${upt_reqs_time2}`:`${upt_reqs_time1}`
+        let upt_reqs_place=dom.find('input').eq(3).val()
+        let upt_reqs_type=dom.find('select').eq(1).val()
+        let upt_reqs_pay=dom.find('input').eq(4).val()
+        let upt_id=$(this).attr('id')
+        // console.log(dom.find('select'))
+        $.post('./api/update_reqs.php',{
+            upt_chked,
+            upt_reqs_posit,
+            upt_reqs_jd,
+            upt_reqs_time,
+            upt_reqs_place,
+            upt_reqs_type,
+            upt_reqs_pay,
+            upt_id
+        },function(){
+        })
+    })
 
-    //     // 更新資料
-    //     $('input.upt-btn').on('click',function(){
-    //         let dom=$(this).parent().children().children()
-    //         let upt_chked=dom.find('input').eq(0).prop('checked')
-    //         let upt_grad_t=dom.find('input').eq(1).val()
-    //         let upt_sch=dom.find('input').eq(2).val()
-    //         let upt_dept=dom.find('input').eq(3).val()
-    //         let upt_grad_st=dom.eq(2).children().find('option:selected').val()
-    //         let upt_id=$(this).attr('id')
-    //         // console.log(upt_chked)
-    //         $.post('./api/update_edu.php',{upt_chked,upt_grad_t,upt_sch,upt_dept,upt_grad_st,upt_id},function(){
-    //         })
-    //     })
-
-    //     // 刪除資料
-    //     $('input.del-btn').on('click',function(){
-    //         let del_id=($(this).prev().attr('id'))
-    //         $.post('./api/del_edu.php',{del_id},function(){
-    //         })
-    //         window.location.replace("./admin.php?p=ed")
-    //     })
+    // 刪除資料
+    $('input.del-btn').on('click',function(){
+        let del_id=($(this).prev().attr('id'))
+        $.post('./api/del_reqs.php',{del_id},function(){
+        })
+        window.location.replace("./admin.php?p=re")
+    })
     })
 })
 </script>
