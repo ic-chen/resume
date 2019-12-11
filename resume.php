@@ -55,7 +55,7 @@ function searchAll($table,...$arg){
     }
     .table-contact {
         word-break: break-all;
-        word-wrap: break-all;
+        word-wrap: break-word;
     }
 </style>
 </head>
@@ -130,13 +130,16 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]);
 ?>
     <div class="resume row justify-content-center">
         <!-- 履歷左欄 -->
-        <div class="left col-3">
+        <div class="left col-2">
             <!-- 姓名區塊 -->
-            <div class="name card text-center">
+            <?php
+            foreach($s_intro as $value){
+            ?>
+            <div class="name card mb-4 text-center">
                 <div class="card-body">
                     <h5 class="card-title h2"><?=$data['name'];?></h5>
                     <?php
-                    foreach($s_intro as $value){
+                    if(!empty($value['s_intro'])) {
                     ?>
                     <p class="card-text"><?=$value['s_intro'];?></p>
                     <?php
@@ -145,9 +148,15 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]);
                     <p class="card-text"><small class="text-muted"><?=$data['addr'];?></small></p>
                 </div>
             </div>
+            <?php
+            }
+            ?>
 
             <!-- 聯絡資訊和社群資料 -->
-            <div class="contact card mt-4">
+            <?php
+                foreach($social_m as $value) {
+            ?>
+            <div class="contact card mb-4">
                 <div class="card-header">
                 聯絡資訊
                 </div>
@@ -159,7 +168,6 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]);
                     <td><?=$data['email'];?></td>
                     </tr>
                 <?php
-                foreach($social_m as $value) {
                     if(!empty($value['fb'])) {
                 ?>
                     <tr>
@@ -208,47 +216,95 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]);
                     </tr>
                 <?php
                     }
-                }
                 ?>
                     </tbody>
                     </table>
                 </div>
             </div>
+            <?php
+            }
+            ?>
             <!-- 學歷資料 -->
-            <div class="edu card mt-4">
+            <div class="edu card mb-4">
                 <div class="card-header">
                 學歷
                 </div>
                 <div class="card-body">
+                <?php
+                foreach($edu as $value) {
+                ?>
                     <blockquote class="blockquote mb-0">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    <p>
+                <?php
+                if(!empty($value['grad_t'])) {
+                ?>
+                    <?=$value['grad_t'];?><br>
+                <?php
+                }
+                if(!empty($value['sch'])) {
+                ?>
+                    <?=$value['sch'];?>
+                <?php
+                }
+                if(!empty($value['grad_st'])) {
+                ?>
+                    （<?=$value['grad_st'];?>）
+                <?php
+                }
+                if(!empty($value['dept'])) {
+                ?>
+                    <br><?=$value['dept'];?>
+                <?php
+                }
+                ?>
+                    </p>
                     </blockquote>
+                <?php
+                }
+                ?>
                 </div>
             </div>
         </div>
         <!-- 履歷右欄 -->
-        <div class="right col-4">
-            <div class="s_intro card">
+        <div class="right col-5">
+            <!-- 自傳 -->
+            <?php
+            foreach($s_intro as $v) {
+            ?>
+            <div class="s_intro card mb-4">
                 <div class="card-header">
                 自傳
                 </div>
                 <div class="card-body">
                     <blockquote class="blockquote mb-0">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    <p><?=$v['bio'];?></p>
                     </blockquote>
                 </div>
             </div>
-            <div class="skill card mt-4">
+            <?php
+            }
+            ?>
+
+            <div class="skill card mb-4">
                 <div class="card-header">
                 工作技能
                 </div>
                 <div class="card-body">
                     <blockquote class="blockquote mb-0">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    <p>
+
+<?php
+$skill=searchAll("skill",["acct"=>"$acct", "see"=>"1"]);
+foreach($skill as $k => $v){
+    echo count($skill[$k]['cat']);
+}
+?>
+
+                    </p>
                     </blockquote>
                 </div>
             </div>
-            <div class="exp card mt-4">
+            <div class="exp card mb-4">
                 <div class="card-header">
                 工作經歷
                 </div>
