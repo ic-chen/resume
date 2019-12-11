@@ -12,7 +12,7 @@
 <!--  設定未登入或未註冊時的訊息  -->
 <?php
 session_start();
-if(!isset($_SESSION['login'])){
+if(!isset($_SESSION['login']) || $_SESSION['login']==0){
 ?>
 <style>
 body {
@@ -21,29 +21,17 @@ body {
 }
 </style>
 <?php
-    echo "未登入或未註冊。<br>";
-    echo "請回<a href='./index.html'>首頁</a>登入，或回<a href='./reg.html'>註冊頁面</a>註冊。";
-    exit();
-}elseif($_SESSION['login']==0){
-?>
-<style>
-body {
-    text-align: center;
-    padding-top: 10%;
-}
-</style>
-<?php
-    echo "未登入成功。<br>";
-    echo "請回<a href='./index.html'>首頁</a>重新登入。";
+    echo "未登入成功或未註冊。<br>";
+    echo "請回<a href='./index.html'>首頁</a>重新登入，或到<a href='./reg.html'>註冊頁面</a>註冊。";
     exit();
 }elseif($_SESSION['login']==2){
     ?>
-    <style>
+<style>
     body {
         text-align: center;
         padding-top: 10%;
     }
-    </style>
+</style>
     <?php
         echo "未註冊成功。<br>";
         echo "請回<a href='./reg.html'>註冊頁面</a>重新註冊。";
@@ -92,7 +80,7 @@ body {
           <a class="nav-link" href="#" onclick="loadpage('reqs.html')">設定求職條件</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">預覽履歷</a>
+          <a class="nav-link" href="./resume.php" target="_blank">預覽履歷</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./api/logout.php">登出</a>
@@ -105,7 +93,7 @@ body {
 
 <?php
 if($_SESSION['login']==1){
-    echo "歡迎登入！請從右方選單選擇要執行的操作。";
+    echo "歡迎登入！請從上方選單選擇要執行的操作。";
 }
 ?>
     </div>

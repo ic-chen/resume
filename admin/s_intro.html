@@ -37,7 +37,13 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="s_intro">自我介紹</label>
-    <textarea class="form-control" name="s_intro" rows="15"></textarea>
+                    <textarea class="form-control" name="s_intro" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="bio">自傳</label>
+                    <textarea class="form-control" name="bio" rows="10"></textarea>
                 </div>
             </div>
             <div class="modal-footer">
@@ -60,10 +66,11 @@ $(function(){
         $('input.upt-btn').on('click',function(){
             let dom=$(this).parent().children().children()
             let upt_chked=dom.find('input').eq(0).prop('checked')
-            let upt_s_intro=dom.find('textarea').val()
+            let upt_s_intro=dom.find('textarea').eq(0).val()
+            let upt_bio=dom.find('textarea').eq(1).val()
             let upt_id=$(this).attr('id')
-            console.log(upt_id)
-            $.post('./api/update_s_intro.php',{upt_chked,upt_s_intro,upt_id},function(){
+            // console.log(dom.find('textarea').eq(1).val())
+            $.post('./api/update_s_intro.php',{upt_chked,upt_s_intro,upt_bio,upt_id},function(){
             })
         })
 

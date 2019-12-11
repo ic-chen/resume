@@ -18,6 +18,7 @@ $num=0;
 foreach($s_intro as $value){
 $s_intro_id=$value['id'];
 $s_intro=$value['s_intro'];
+$bio=$value['bio'];
 $checked=($value['see']==1)?"checked":"";
 $num++;
 
@@ -38,7 +39,15 @@ echo "</div>";
 echo "<div class='form-row'>";
 echo "    <div class='form-group col-md-12'>";
 echo "        <label for='s_intro'>自我介紹</label>";
-echo "        <textarea class='form-control' name='s_intro' rows='15'>$s_intro</textarea>";
+echo "        <textarea class='form-control' name='s_intro' rows='5'>$s_intro</textarea>";
+echo "    </div>";
+echo "</div>";
+
+// 第三列
+echo "<div class='form-row'>";
+echo "    <div class='form-group col-md-12'>";
+echo "        <label for='bio'>自傳</label>";
+echo "        <textarea class='form-control' name='bio' rows='10'>$bio</textarea>";
 echo "    </div>";
 echo "</div>";
 
