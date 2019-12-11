@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2019-12-09 16:17:01
+-- 產生時間： 2019-12-11 16:35:40
 -- 伺服器版本： 10.4.6-MariaDB
 -- PHP 版本： 7.3.9
 
@@ -43,8 +43,7 @@ CREATE TABLE `edu` (
 --
 
 INSERT INTO `edu` (`id`, `acct`, `see`, `grad_t`, `grad_st`, `sch`, `dept`) VALUES
-(1, 'ic123456', 0, '22222222222', '畢業', '22222222222', '22222222222'),
-(4, 'ic123456', 0, '999999999', '修業', '999999999', '999999999');
+(1, 'admin', 0, '2004 ~ 2008', '畢業', '淡江大學', '英文學系');
 
 -- --------------------------------------------------------
 
@@ -67,8 +66,10 @@ CREATE TABLE `exp` (
 --
 
 INSERT INTO `exp` (`id`, `acct`, `see`, `dur`, `corp`, `posit`, `jd`) VALUES
-(2, 'ic123456', 1, '22222222222', '3333333333', '22222222222', '33333333333'),
-(3, 'ic123456', 0, '55555555555', '55555555555', '55555555555', '55555555555');
+(1, 'admin', 0, '2010/10 ~ 2012/03 (1年5個月)', '中茂文化有限公司', '中文化專案管理', '負責國外供應商及客戶的書信，以及負責往返聯絡、管理技術文件、翻譯專業文件。'),
+(2, 'admin', 0, '2012/04 ~ 2015/02 (2年11個月)', '中茂文化有限公司', '自由譯者', '技術文件、社群遊戲等等的編輯與翻譯。'),
+(3, 'admin', 0, '2015/04 ~ 2019/04 (4年1個月)', '易韋有限公司', '全職英翻中資深編譯', '英翻中的翻譯、審稿。'),
+(4, 'admin', 0, '2015/04 ~ 2019/09 (4年6個月)', '英商思迪股份有限公司', '自由譯者', '英翻中的翻譯、審稿。');
 
 -- --------------------------------------------------------
 
@@ -80,13 +81,21 @@ CREATE TABLE `reqs` (
   `id` int(11) NOT NULL,
   `acct` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '帳號',
   `see` tinyint(1) NOT NULL DEFAULT 0 COMMENT '可見',
-  `reqs_posit` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '期望職務',
-  `reqs_jd` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '工作描述',
-  `reqs_time` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '可上班時間',
-  `reqs_type` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '期望工作性質',
-  `reqs_place` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '期望工作地點',
-  `reqs_pay` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '期望薪資'
+  `reqs_posit` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '期望職務',
+  `reqs_jd` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '工作描述',
+  `reqs_time` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '可上班時間',
+  `reqs_type` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '期望工作性質',
+  `reqs_place` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '期望工作地點',
+  `reqs_pay` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '期望薪資'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `reqs`
+--
+
+INSERT INTO `reqs` (`id`, `acct`, `see`, `reqs_posit`, `reqs_jd`, `reqs_time`, `reqs_type`, `reqs_place`, `reqs_pay`) VALUES
+(1, 'admin', 1, '全端/前端/後端網頁設計人員', '依照電腦輸入與輸出之多媒體功能，進行綜合設計，並用電腦網頁設計語言撰寫程式。', '隨時', '全職', '雙北地區', '38,000/月'),
+(2, 'admin', 0, '中文化翻譯人員', '商業書信、契約、網站、商品介紹、型錄、新聞稿、操作說明書、觀光文章、系統介面等英翻中案件。', '隨時', '全職', '雙北地區', '38,000/月');
 
 -- --------------------------------------------------------
 
@@ -100,7 +109,7 @@ CREATE TABLE `skill` (
   `see` tinyint(1) NOT NULL DEFAULT 0 COMMENT '可見',
   `cat` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '分類',
   `skill` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '技能',
-  `level` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '程度'
+  `level` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '程度'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -108,9 +117,7 @@ CREATE TABLE `skill` (
 --
 
 INSERT INTO `skill` (`id`, `acct`, `see`, `cat`, `skill`, `level`) VALUES
-(1, 'ic123456', 1, '管理類', '22222222222222', '7777777777777'),
-(2, 'ic123456', 1, '管理類', '3333333333333333333333', '3333333333333333333333'),
-(4, 'ic123456', 1, '美容美髮', '88888888888888', '88888888888888');
+(1, 'admin', 0, '語言', '英文', 'TOEIC 金色');
 
 -- --------------------------------------------------------
 
@@ -135,9 +142,7 @@ CREATE TABLE `social_m` (
 --
 
 INSERT INTO `social_m` (`id`, `acct`, `see`, `fb`, `ig`, `linkedin`, `github`, `youtube`, `twitter`) VALUES
-(1, 'ic123456', 0, '111111111111', '111111111111', '111111111111', '111111111111', '111111111111', '111111111111'),
-(2, 'ic123456', 0, '22222222222', '22222222222', '22222222222', '22222222222', '22222222222', '22222222222'),
-(3, 'ic123456', 0, '77777777777', '77777777777', '77777777777', '77777777777', '77777777777', '77777777777');
+(1, 'admin', 1, '', '', 'http://www.linkedin.com/in/irmachen', 'http://github.com/ic-chen', '', '');
 
 -- --------------------------------------------------------
 
@@ -149,16 +154,17 @@ CREATE TABLE `s_intro` (
   `id` int(11) NOT NULL,
   `acct` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '帳號',
   `see` tinyint(1) NOT NULL DEFAULT 0 COMMENT '可見',
-  `s_intro` varchar(2000) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '自介'
+  `s_intro` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '自介',
+  `bio` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `s_intro`
 --
 
-INSERT INTO `s_intro` (`id`, `acct`, `see`, `s_intro`) VALUES
-(2, 'ic123456', 0, '5555555555555555\r\n5555555555555555\r\n5555555555555555\r\n5555555555555555\r\n5555555555555555\r\n5555555555555555'),
-(4, 'ic123456', 1, '88888888888\n\n\n88888888888\n\n\n88888888888');
+INSERT INTO `s_intro` (`id`, `acct`, `see`, `s_intro`, `bio`) VALUES
+(1, 'admin', 1, '中文化譯者、網頁設計初學者', '在中文化翻譯領域有十年的工作經驗，目前正在慢慢學習網頁和程式設計，希望可以開拓出不一樣的人生。'),
+(2, 'admin', 0, '中文化譯者、資深編譯', '能依循行業常規翻譯出流暢之中文、熟悉各種 CAT 翻譯工具，並具備 TOEIC 金色證書。');
 
 -- --------------------------------------------------------
 
@@ -176,7 +182,7 @@ CREATE TABLE `user` (
   `email` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '電郵',
   `tel_cell` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '行動電話',
   `tel_home` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '家中電話',
-  `addr` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '地址',
+  `addr` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '居住地區',
   `reg_time` timestamp NULL DEFAULT current_timestamp() COMMENT '註冊時間',
   `upt_time` timestamp NULL DEFAULT current_timestamp() COMMENT '更新時間'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -186,7 +192,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `acct`, `psw`, `name`, `gender`, `btd`, `email`, `tel_cell`, `tel_home`, `addr`, `reg_time`, `upt_time`) VALUES
-(1, 'ic123456', '123456', '一二三', '女性', '2019-11-06', 'irma_chen79@hotmail.com', '0900-123-456', '(03)4646-4648', '桃園', '2019-11-25 05:54:45', '2019-12-05 02:04:44');
+(1, 'admin', 'admin', '陳怡婷', '女性', '1986-07-09', 'irma_chen79@hotmail.com', '0929-810-875', '', '新北市永和區', '2019-12-11 03:21:24', '2019-12-11 03:21:24');
 
 --
 -- 已傾印資料表的索引
@@ -242,37 +248,37 @@ ALTER TABLE `user`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `edu`
 --
 ALTER TABLE `edu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `exp`
 --
 ALTER TABLE `exp`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `reqs`
 --
 ALTER TABLE `reqs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `skill`
 --
 ALTER TABLE `skill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `social_m`
 --
 ALTER TABLE `social_m`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `s_intro`
 --
 ALTER TABLE `s_intro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `user`
