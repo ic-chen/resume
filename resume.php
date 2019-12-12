@@ -59,6 +59,10 @@ function searchAll($table,...$arg){
     }
     .skill-table tr th {
         width: 50%;
+        border-bottom: 1px solid #dee2e6;
+    }
+    .skill-table td {
+        border: none;
     }
 </style>
 </head>

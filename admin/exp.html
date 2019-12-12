@@ -10,29 +10,25 @@
     width: 30em;
     box-sizing: border-box;
 }
+.alert {
+  margin-bottom: 0;
+  border-radius: 0;
+}
 </style>
 </head>
 <body>
-<!-- 提示吐司 -->
-<div class="position-absolute w-100 d-flex flex-column p-4" style="z-index:999;">
-    <div class="toast ml-auto" role="alert" data-delay="700" data-autohide="false">
-        <div class="toast-header">
-            <strong class="mr-auto text-primary">提示</strong>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                <span aria-hidden="true">×</span>
-            </button>
-        </div>
-        <div class="toast-body">請依照新>舊的時間順序新增工作經歷！</div>
-    </div>
-    <div class="toast ml-auto" role="alert" data-delay="700" data-autohide="false">
-        <div class="toast-header">
-            <strong class="mr-auto text-danger">注意</strong>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                <span aria-hidden="true">×</span>
-            </button>
-        </div>
-        <div class="toast-body">變更資料後，必須按一下「更新」才會生效！</div>
-    </div>
+<!-- 提示 -->
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>提示：</strong>變更資料後，必須按一下「更新」才會生效！
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <strong>提示：</strong>請依照新>舊的時間順序新增工作經歷！
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
 </div>
 
 <!-- 顯示及新增資料 -->
@@ -88,7 +84,6 @@
 
 <script>
 $(function(){
-    $('.toast').toast('show')
 
     $.get('./api/query_exp.php',{},function(echo){
         $('.data').append(echo)

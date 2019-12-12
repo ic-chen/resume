@@ -57,7 +57,7 @@ body {
   <!-- 導覽列 -->
 <div class="admin bg-light">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#">C</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -74,6 +74,7 @@ body {
             <a class="dropdown-item" href="#" onclick="loadpage('s_intro.html')">自我介紹</a>
             <a class="dropdown-item" href="#" onclick="loadpage('skill.html')">工作技能</a>
             <a class="dropdown-item" href="#" onclick="loadpage('exp.html')">工作經歷</a>
+            <a class="dropdown-item" href="#" onclick="loadpage('img.html')">圖片</a>
           </div>
         </li>
         <li class="nav-item">
@@ -132,6 +133,9 @@ if(!empty($_GET['p'])){
     break;
     case "re":
 ?>loadpage('reqs.html')<?php
+    break;
+    case "im":
+?>loadpage('img.html')<?php
     break;
 
     default:
