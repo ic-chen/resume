@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>管理求職條件</title>
-    <link rel="stylesheet" href="./css/bootstrap.css">
 <style>
 .card {
     width: 30em;
@@ -14,6 +13,19 @@
 </style>
 </head>
 <body>
+<!-- 提示吐司 -->
+<div class="position-absolute w-100 d-flex flex-column p-4" style="z-index:999;">
+    <div class="toast ml-auto" role="alert" data-delay="700" data-autohide="false">
+        <div class="toast-header">
+            <strong class="mr-auto text-danger">注意</strong>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="toast-body">變更資料後，必須按一下「更新」才會生效！</div>
+    </div>
+</div>
+
 <!-- 顯示及新增資料 -->
 <div class="data flex-wrap d-flex justify-content-start">
     <div class="w-100 row justify-content-center">
@@ -91,9 +103,9 @@
     </div>
 </div>
 
-<script src="./js/jquery-3.4.1.min.js"></script>
 <script>
 $(function(){
+$('.toast').toast('show')
 
 // 選擇「其他」時顯示輸入欄位
 $('#inputReqs_time1').on('change',function(){

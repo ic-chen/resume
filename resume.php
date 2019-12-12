@@ -57,6 +57,9 @@ function searchAll($table,...$arg){
         word-break: break-all;
         word-wrap: break-word;
     }
+    .skill-table tr th {
+        width: 50%;
+    }
 </style>
 </head>
 <body class="bg-light">
@@ -126,11 +129,11 @@ $s_intro=searchAll("s_intro",["acct"=>"$acct", "see"=>"1"]);
 // 撈出社群資料
 $social_m=searchAll("social_m",["acct"=>"$acct", "see"=>"1"]);
 // 撈出學歷資料
-$edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]);
+$edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
 ?>
     <div class="resume row justify-content-center">
         <!-- 履歷左欄 -->
-        <div class="left col-2">
+        <div class="left col-3">
             <!-- 姓名區塊 -->
             <?php
             foreach($s_intro as $value){
@@ -238,23 +241,23 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]);
                 <?php
                 if(!empty($value['grad_t'])) {
                 ?>
-                    <?=$value['grad_t'];?><br>
+                    <?=$value['grad_t'];?>
                 <?php
                 }
                 if(!empty($value['sch'])) {
                 ?>
-                    <?=$value['sch'];?>
-                <?php
-                }
-                if(!empty($value['grad_st'])) {
-                ?>
-                    （<?=$value['grad_st'];?>）
+                    <br><?=$value['sch'];?>
                 <?php
                 }
                 if(!empty($value['dept'])) {
                 ?>
                     <br><?=$value['dept'];?>
                 <?php
+                }
+                if(!empty($value['grad_st'])) {
+                    ?>
+                    （<?=$value['grad_st'];?>）
+                    <?php
                 }
                 ?>
                     </p>
@@ -266,7 +269,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]);
             </div>
         </div>
         <!-- 履歷右欄 -->
-        <div class="right col-5">
+        <div class="right col-4">
             <!-- 自傳 -->
             <?php
             foreach($s_intro as $v) {
@@ -284,34 +287,88 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]);
             <?php
             }
             ?>
-
+            <!-- 工作技能 -->
             <div class="skill card mb-4">
                 <div class="card-header">
                 工作技能
                 </div>
                 <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                    <p>
 
-<?php
-$skill=searchAll("skill",["acct"=>"$acct", "see"=>"1"]);
-foreach($skill as $k => $v){
-    echo count($skill[$k]['cat']);
-}
-?>
-
-                    </p>
-                    </blockquote>
+                <?php
+                // 撈出技能資料
+                $skill=searchAll("skill",["acct"=>"$acct", "see"=>"1"]);
+                // 刪除重複的技能分類
+                $cat=array_column($skill,"cat");
+                $cat_unique=array_unique($cat);
+                foreach($cat_unique as $category){
+                ?>
+                <table class="skill-table table table-sm">
+                <thead>
+                    <tr>
+                    <th scope="col"><?=$category;?></th>
+                    <th scope="col">程度</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                foreach($skill as $value) {
+                    if($value['cat']==$category){
+                ?>
+                <tr>
+                <td><?=$value['skill'];?></td>
+                <td><?=$value['level'];?></td>
+                </tr>
+                <?php
+                    }
+                }
+                ?>
+                </tbody>
+                </table>
+                <?php
+                }
+                ?>
                 </div>
             </div>
+
+            <!-- 工作經歷 -->
             <div class="exp card mb-4">
                 <div class="card-header">
                 工作經歷
                 </div>
                 <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    </blockquote>
+                <ul class="list-group list-group-flush">
+                    <?php
+                    $exp=searchAll("exp",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
+                    foreach($exp as $value) {
+                    ?>
+                    <li class="list-group-item">
+                    <?php
+                    if(!empty($value['posit'])) {
+                        ?>
+                        <span class="font-weight-bold"><?=$value['posit'];?></span>
+                        <?php
+                    }
+                    if(!empty($value['dur'])) {
+                    ?>
+                        <br><?=$value['dur'];?>
+                    <?php
+                    }
+                    if(!empty($value['corp'])) {
+                    ?>
+                        <br><?=$value['corp'];?>
+                    <?php
+                    }
+                    if(!empty($value['jd'])) {
+                    ?>
+                        <br><i class="far fa-caret-square-right fa-lg"></i> <?=$value['jd'];?>
+                    <?php
+                    }
+                    ?>
+                    </li>
+                    <?php
+                    }
+                    ?>
+                </ul>
                 </div>
             </div>
         </div>

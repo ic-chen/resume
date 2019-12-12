@@ -66,7 +66,7 @@ body {
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">管理履歷</a>
+            aria-haspopup="true" aria-expanded="false">管理資料和履歷</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#" onclick="loadpage('data.html')">個人資料</a>
             <a class="dropdown-item" href="#" onclick="loadpage('social_m.html')">社群資料</a>
@@ -93,7 +93,12 @@ body {
 
 <?php
 if($_SESSION['login']==1){
-    echo "歡迎登入！請從上方選單選擇要執行的操作。";
+  echo "<div class='jumbotron bg-light jumbotron-fluid'>";
+  echo "<div class='container'>";
+  echo "    <h1 class='display-4'>歡迎登入！</h1>";
+  echo "    <p class='lead'>請從上方選單選擇要執行的操作。</p>";
+  echo "</div>";
+  echo "</div>";
 }
 ?>
     </div>
