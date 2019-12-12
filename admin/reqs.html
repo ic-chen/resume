@@ -19,7 +19,7 @@
 <body>
 <!-- 提示 -->
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>提示：</strong>變更資料後，必須按一下「更新」才會生效！
+    <strong>提示：</strong>變更顯示狀態或修改資料後，必須按一下「更新」才會生效！
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -178,13 +178,14 @@ $('#inputReqs_time1').on('change',function(){
         })
     })
 
-    // 刪除資料
-    $('input.del-btn').on('click',function(){
-        let del_id=($(this).prev().attr('id'))
-        $.post('./api/del_reqs.php',{del_id},function(){
+        // 刪除資料
+        $('input.del-btn').on('click',function(){
+            let del_id=($(this).prev().attr('id'))
+            let table='reqs'
+            $.post('./api/del.php',{del_id,table},function(){
+            })
+            window.location.replace("./admin.php?p=re")
         })
-        window.location.replace("./admin.php?p=re")
-    })
     })
 })
 </script>

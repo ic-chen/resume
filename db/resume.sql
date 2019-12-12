@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2019-12-12 16:40:22
+-- 產生時間： 
 -- 伺服器版本： 10.4.6-MariaDB
 -- PHP 版本： 7.3.9
 
@@ -91,9 +91,9 @@ CREATE TABLE `img` (
 --
 
 INSERT INTO `img` (`id`, `see`, `acct`, `filename`, `alt`) VALUES
-(1, 0, 'admin', '23d50e04b0c3027b.jpg', '企鵝'),
+(1, 1, 'admin', '23d50e04b0c3027b.jpg', '企鵝'),
 (2, 0, 'admin', '7e7cd0b1jw1f811tiddxqj20fa0egdhz.jpg', '貓熊'),
-(3, 0, 'admin', '7e7cd0b1jw1f811tiddxqj20fa0egdhz.jpg', '貓熊');
+(4, 0, 'admin', 'wzLgOqh - Imgur.jpg', '企鵝');
 
 -- --------------------------------------------------------
 
@@ -144,8 +144,7 @@ INSERT INTO `skill` (`id`, `acct`, `see`, `cat`, `skill`, `level`) VALUES
 (1, 'admin', 1, '語言', '英文', 'TOEIC 金色'),
 (2, 'admin', 1, '語言', '中文', '母語'),
 (3, 'admin', 1, '設計/美工', 'Photoshop', '大致熟悉'),
-(4, 'admin', 1, '設計/美工', 'Illustrator', '基本操作'),
-(5, 'admin', 0, '語言', '日文', '五十音');
+(4, 'admin', 1, '設計/美工', 'Illustrator', '基本操作');
 
 -- --------------------------------------------------------
 
@@ -294,7 +293,7 @@ ALTER TABLE `exp`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `img`
 --
 ALTER TABLE `img`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `reqs`

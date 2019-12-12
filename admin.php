@@ -74,7 +74,7 @@ body {
             <a class="dropdown-item" href="#" onclick="loadpage('s_intro.html')">自我介紹</a>
             <a class="dropdown-item" href="#" onclick="loadpage('skill.html')">工作技能</a>
             <a class="dropdown-item" href="#" onclick="loadpage('exp.html')">工作經歷</a>
-            <a class="dropdown-item" href="#" onclick="loadpage('img.html')">圖片</a>
+            <a class="dropdown-item" href="#" onclick="loadpage('img.html')">頭像圖片</a>
           </div>
         </li>
         <li class="nav-item">

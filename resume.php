@@ -66,7 +66,7 @@ function searchAll($table,...$arg){
     }
 </style>
 </head>
-<body class="bg-light">
+<body class="bg-light text-dark">
 <div class="container-fluid">
 
 <?php
@@ -80,7 +80,7 @@ foreach($reqs as $value){
     <!-- 求職條件 -->
     <div class="reqs row justify-content-center">
         <div class="col-7">
-            <div class="card">
+            <div class="card border-secondary">
                 <div class="card-header text-white bg-secondary">
                 求職條件
                 </div>
@@ -128,6 +128,8 @@ foreach($reqs as $value){
 ?>
 
 <?php
+// 撈出頭像圖片
+$img=searchAll("img",["acct"=>"$acct", "see"=>"1"]);
 // 撈出自我介紹和自傳
 $s_intro=searchAll("s_intro",["acct"=>"$acct", "see"=>"1"]);
 // 撈出社群資料
@@ -137,12 +139,19 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
 ?>
     <div class="resume row justify-content-center">
         <!-- 履歷左欄 -->
-        <div class="left col-3">
-            <!-- 姓名區塊 -->
+        <div class="left col-2">
+            <!-- 頭像+姓名 -->
+            <div class="name card border-secondary mb-4 text-center">
+            <?php
+            foreach($img as $value){
+            ?>
+            <img src="./img/<?=$value['filename'];?>" class="card-img-top" alt="<?=$value['alt'];?>" >
+            <?php
+            }
+            ?>
             <?php
             foreach($s_intro as $value){
             ?>
-            <div class="name card mb-4 text-center">
                 <div class="card-body">
                     <h5 class="card-title h2"><?=$data['name'];?></h5>
                     <?php
@@ -163,7 +172,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
             <?php
                 foreach($social_m as $value) {
             ?>
-            <div class="contact card mb-4">
+            <div class="contact card border-secondary mb-4">
                 <div class="card-header">
                 聯絡資訊
                 </div>
@@ -232,7 +241,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
             }
             ?>
             <!-- 學歷資料 -->
-            <div class="edu card mb-4">
+            <div class="edu card border-secondary mb-4">
                 <div class="card-header">
                 學歷
                 </div>
@@ -273,12 +282,12 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
             </div>
         </div>
         <!-- 履歷右欄 -->
-        <div class="right col-4">
+        <div class="right col-5">
             <!-- 自傳 -->
             <?php
             foreach($s_intro as $v) {
             ?>
-            <div class="s_intro card mb-4">
+            <div class="s_intro card border-secondary mb-4">
                 <div class="card-header">
                 自傳
                 </div>
@@ -292,7 +301,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
             }
             ?>
             <!-- 工作技能 -->
-            <div class="skill card mb-4">
+            <div class="skill card border-secondary mb-4">
                 <div class="card-header">
                 工作技能
                 </div>
@@ -335,7 +344,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
             </div>
 
             <!-- 工作經歷 -->
-            <div class="exp card mb-4">
+            <div class="exp card border-secondary mb-4">
                 <div class="card-header">
                 工作經歷
                 </div>
@@ -354,7 +363,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                     }
                     if(!empty($value['dur'])) {
                     ?>
-                        <br><?=$value['dur'];?>
+                        <br><span class="text-muted"><?=$value['dur'];?></span>
                     <?php
                     }
                     if(!empty($value['corp'])) {

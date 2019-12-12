@@ -43,7 +43,7 @@ echo "<div class='form-row'>";
 echo "    <div class='form-group col-md-12'>";
 echo "        <div class='form-check'>";
 echo "            <input class='form-check-input' name='see' type='radio' id='see$num' $checked>";
-echo "            <label class='form-check-label' name='see' for='see$num'>顯示</label>";
+echo "            <label class='form-check-label' name='see' for='see$num'>在履歷中顯示</label>";
 echo "        </div>";
 echo "    </div>";
 echo "</div>";

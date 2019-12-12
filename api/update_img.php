@@ -1,19 +1,15 @@
-Hello
 <?php
 include_once "db_info.php";
 
-echo $_POST['see'];
+$see=($_POST['upt_chked']=="true")?1:0; 
+$alt=(empty($_POST['upt_alt']))?"":$_POST['upt_alt']; 
+$id=(empty($_POST['upt_id']))?"":$_POST['upt_id']; 
 
-// $data['sh']=($id==$_POST['sh'])?1:0;
-// $dur=$_POST['upt_dur'];
-// $corp=$_POST['upt_corp'];
-// $posit=$_POST['upt_posit'];
-// $jd=$_POST['upt_jd'];
-// $id=$_POST['upt_id'];
+// $filename=(empty($_FILES['file']))?"":$_FILES['file']['name'];
 
-// $sql="UPDATE `exp` SET `see`='$see',`dur`='$dur',`corp`='$corp',`posit`='$posit',`jd`='$jd' WHERE `id`='$id'";
+$sql="UPDATE `img` SET `see`='$see', `alt`='$alt' WHERE `id`='$id'";
 
-// echo $sql;
+echo $sql;
 
-// $pdo->exec($sql);
+$pdo->exec($sql);
 // ?>

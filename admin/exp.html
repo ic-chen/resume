@@ -19,13 +19,13 @@
 <body>
 <!-- 提示 -->
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>提示：</strong>變更資料後，必須按一下「更新」才會生效！
+    <strong>提示：</strong>變更顯示狀態或修改資料後，必須按一下「更新」才會生效！
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 <div class="alert alert-primary alert-dismissible fade show" role="alert">
-    <strong>提示：</strong>請依照新>舊的時間順序新增工作經歷！
+    <strong>提示：</strong>請依照新->舊的時間順序來新增工作經歷！
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -105,7 +105,8 @@ $(function(){
         // 刪除資料
         $('input.del-btn').on('click',function(){
             let del_id=($(this).prev().attr('id'))
-            $.post('./api/del_exp.php',{del_id},function(){
+            let table='exp'
+            $.post('./api/del.php',{del_id,table},function(){
             })
             window.location.replace("./admin.php?p=ex")
         })

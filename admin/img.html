@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>管理圖片</title>
+    <title>管理頭像圖片</title>
 <style>
 .card {
     width: 20em;
@@ -22,7 +22,7 @@ img {
 <body>
 <!-- 提示 -->
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>提示：</strong>變更資料後，必須按一下「更新」才會生效！
+    <strong>提示：</strong>變更顯示狀態或修改資料後，必須按一下「更新」才會生效！
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -75,13 +75,41 @@ $(function(){
     $.get('./api/query_img.php',{},function(echo){
         $('.data').append(echo)
 
-    //     // 刪除資料
-    //     $('input.del-btn').on('click',function(){
-    //         let del_id=($(this).prev().attr('id'))
-    //         $.post('./api/del_edu.php',{del_id},function(){
-    //         })
-    //         window.location.replace("./admin.php?p=ed")
-    //     })
+    // 更新資料
+    $('input.upt-btn').on('click',function(){
+        let dom=$(this).parent().children().children()
+        let upt_chked=dom.find('input').eq(0).prop('checked')
+        let upt_alt=dom.find('input').eq(1).val()
+        let upt_id=$(this).attr('id')
+
+        // let file_data=dom.find('input').eq(1).prop('files')
+        var form_data = new FormData()
+        // form_data.append('file', file_data)
+        form_data.append('upt_chked', upt_chked)
+        form_data.append('upt_alt', upt_alt)
+        form_data.append('upt_id', upt_id)
+
+        // console.log(file_data)
+        $.ajax({
+                url: './api/update_img.php',
+                type: 'post',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                success: function(){
+                }
+        })
+    })
+
+        // 刪除資料
+        $('input.del-btn').on('click',function(){
+            let del_id=($(this).prev().attr('id'))
+            let table='img'
+            $.post('./api/del.php',{del_id,table},function(){
+            })
+            window.location.replace("./admin.php?p=im")
+        })
     })
 })
 </script>

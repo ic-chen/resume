@@ -25,14 +25,12 @@ $num++;
 echo "<div class='card m-1'>";
 echo "<div class='card-body text-left'>";
 
-echo "<form action='./api/update_img.php' method='post' enctype='multipart/form-data'>";
-
 // 第一列
 echo "<div class='form-row'>";
 echo "    <div class='form-group col-md-12'>";
 echo "        <div class='form-check'>";
-echo "            <input class='form-check-input' name='see' value='$img_id' type='radio' id='see$num' $checked>";
-echo "            <label class='form-check-label' for='see$num'>顯示</label>";
+echo "            <input class='form-check-input' name='see' type='radio' id='see$num' $checked>";
+echo "            <label class='form-check-label' for='see$num'>在履歷中顯示</label>";
 echo "        </div>";
 echo "    </div>";
 echo "</div>";
@@ -45,12 +43,12 @@ echo "    </div>";
 echo "</div>";
 
 // 第三列
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <label for='exampleFormControlFile1'>請選擇一張圖片</label>";
-echo "        <input type='file' class='form-control-file' id='exampleFormControlFile1' type='file' name='img'>";
-echo "    </div>";
-echo "</div>";
+// echo "<div class='form-row'>";
+// echo "    <div class='form-group col-md-12'>";
+// echo "        <label for='exampleFormControlFile1'>請選擇一張圖片</label>";
+// echo "        <input type='file' class='form-control-file' id='exampleFormControlFile1' type='file' name='img'>";
+// echo "    </div>";
+// echo "</div>";
 
 // 第四列
 echo "<div class='form-row'>";
@@ -61,12 +59,8 @@ echo "    </div>";
 echo "</div>";
 
 // 按鈕列
-echo "    <input type='submit' value='更新' class='upt-btn btn btn-primary'>";
+echo "    <input type='button' value='更新' class='upt-btn btn btn-primary' id='$img_id'>";
 echo "    <input type='button' value='刪除' class='del-btn btn btn-primary'>";
-
-echo "<input type='hidden' name='img_id' value='$img_id'>";
-
-echo "</form>";
 
 // 收尾標籤
 echo "</div>";

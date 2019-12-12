@@ -32,7 +32,7 @@ echo "<div class='form-row'>";
 echo "    <div class='form-group col-md-12'>";
 echo "        <div class='form-check'>";
 echo "            <input class='form-check-input' type='checkbox' id='see$num' $checked>";
-echo "            <label class='form-check-label' for='see$num'>顯示</label>";
+echo "            <label class='form-check-label' for='see$num'>在履歷中顯示</label>";
 echo "        </div>";
 echo "    </div>";
 echo "</div>";
