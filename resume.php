@@ -149,24 +149,24 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
             <?php
             }
             ?>
-            <?php
-            foreach($s_intro as $value){
-            ?>
                 <div class="card-body">
                     <h5 class="card-title h2"><?=$data['name'];?></h5>
                     <?php
-                    if(!empty($value['s_intro'])) {
+                    foreach($s_intro as $value){
+                        if(!empty($value['s_intro'])) {
                     ?>
                     <p class="card-text"><?=$value['s_intro'];?></p>
                     <?php
+                        }
                     }
+                    if(!empty($data['addr'])) {
                     ?>
                     <p class="card-text"><small class="text-muted"><?=$data['addr'];?></small></p>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
-            <?php
-            }
-            ?>
 
             <!-- 聯絡資訊和社群資料 -->
             <?php
@@ -179,11 +179,15 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                 <div class="card-body">
                     <table class="table-contact table table-borderless table-sm">
                     <tbody>
+                <?php
+                    if(!empty($data['email'])) {
+                ?>
                     <tr>
                     <td><i class="far fa-envelope fa-lg"></i></th>
                     <td><?=$data['email'];?></td>
                     </tr>
                 <?php
+                }
                     if(!empty($value['fb'])) {
                 ?>
                     <tr>
