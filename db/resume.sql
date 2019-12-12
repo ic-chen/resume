@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2019-12-12 13:59:53
+-- 產生時間： 2019-12-12 16:40:22
 -- 伺服器版本： 10.4.6-MariaDB
 -- PHP 版本： 7.3.9
 
@@ -75,6 +75,29 @@ INSERT INTO `exp` (`id`, `acct`, `see`, `dur`, `corp`, `posit`, `jd`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 資料表結構 `img`
+--
+
+CREATE TABLE `img` (
+  `id` int(11) NOT NULL,
+  `see` tinyint(1) NOT NULL DEFAULT 0,
+  `acct` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `filename` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alt` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `img`
+--
+
+INSERT INTO `img` (`id`, `see`, `acct`, `filename`, `alt`) VALUES
+(1, 0, 'admin', '23d50e04b0c3027b.jpg', '企鵝'),
+(2, 0, 'admin', '7e7cd0b1jw1f811tiddxqj20fa0egdhz.jpg', '貓熊'),
+(3, 0, 'admin', '7e7cd0b1jw1f811tiddxqj20fa0egdhz.jpg', '貓熊');
+
+-- --------------------------------------------------------
+
+--
 -- 資料表結構 `reqs`
 --
 
@@ -121,7 +144,8 @@ INSERT INTO `skill` (`id`, `acct`, `see`, `cat`, `skill`, `level`) VALUES
 (1, 'admin', 1, '語言', '英文', 'TOEIC 金色'),
 (2, 'admin', 1, '語言', '中文', '母語'),
 (3, 'admin', 1, '設計/美工', 'Photoshop', '大致熟悉'),
-(4, 'admin', 1, '設計/美工', 'Illustrator', '基本操作');
+(4, 'admin', 1, '設計/美工', 'Illustrator', '基本操作'),
+(5, 'admin', 0, '語言', '日文', '五十音');
 
 -- --------------------------------------------------------
 
@@ -215,6 +239,12 @@ ALTER TABLE `exp`
   ADD PRIMARY KEY (`id`);
 
 --
+-- 資料表索引 `img`
+--
+ALTER TABLE `img`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- 資料表索引 `reqs`
 --
 ALTER TABLE `reqs`
@@ -261,6 +291,12 @@ ALTER TABLE `exp`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- 使用資料表自動遞增(AUTO_INCREMENT) `img`
+--
+ALTER TABLE `img`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- 使用資料表自動遞增(AUTO_INCREMENT) `reqs`
 --
 ALTER TABLE `reqs`
@@ -270,7 +306,7 @@ ALTER TABLE `reqs`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `skill`
 --
 ALTER TABLE `skill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `social_m`
