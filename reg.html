@@ -21,67 +21,70 @@
 </style>
 </head>
 <body class="bg-light">
-<form action="./api/add_user.php" method="post">
+<form action="./api/add_user.php" id="reg" method="post">
     <!-- 註冊表單內容 -->
-<div class="reg d-flex align-items-center">
-<div class="card mx-auto">
-<div class="card-body text-left">
+<div class="reg d-flex align-items-center justify-content-center">
+<div class="card">
+<div class="card-body">
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputAcct">帳號 <small class="text-danger">*必填</small></label>
-            <input type="text" name="acct" id="acct" aria-describedby="acctHelp" class="form-control" placeholder="請輸入英數字元，勿超過20個字元">
+            <input type="text" name="acct" id="inputAcct" aria-describedby="acctHelp" class="form-control" placeholder="請輸入英數字元，勿超過20個字元">
             <small id="acctHelp" class="form-text text-primary">帳號設定後即無法修改！</small>
         </div>
         <div class="form-group col-md-6">
             <label for="inputPassword">密碼 <small class="text-danger">*必填</small></label>
-            <input type="password" name="psw" id="psw" class="form-control" placeholder="請輸入英數或符號字元，勿超過20個字元">
+            <input type="password" name="psw" id="inputPassword" class="form-control" placeholder="請輸入英數或符號字元，勿超過20個字元">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputName">姓名 <small class="text-danger">*必填</small></label>
-            <input type="text" name="name" id="name" class="form-control" placeholder="請輸入姓名">
+            <input type="text" name="name" id="inputName" class="form-control" placeholder="請輸入姓名">
         </div>
         <div class="form-group col-md-6">
             <label for="inputGender">性別</label>
-            <input type="text" name="gender" id="gender" class="form-control" placeholder="請輸入「男性」、「女性」或其他敘述">
+            <input type="text" name="gender" id="inputGender" class="form-control" placeholder="請輸入「男性」、「女性」或其他敘述">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputBtd">生日</label>
-            <input type="date" name="btd" id="btd" class="form-control">
+            <input type="date" name="btd" id="inputBtd" class="form-control">
         </div>
         <div class="form-group col-md-6">
             <label for="inputEmail">電子郵件</label>
-            <input type="email" name="email" id="email" class="form-control" placeholder="請輸入電郵，例如「xxx@xxmail.com」">
+            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="請輸入電郵，例如「xxx@xxmail.com」">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputCell">行動電話</label>
-            <input type="text" name="tel_cell" id="tel_cell" class="form-control" placeholder="請以連字號分隔，例如「0900-111-222」">
+            <input type="text" name="tel_cell" id="inputCell" class="form-control" placeholder="請以連字號分隔，例如「0900-111-222」">
         </div>
         <div class="form-group col-md-6">
             <label for="inputHome">家中電話</label>
-            <input type="text" name="tel_home" id="tel_home" class="form-control" placeholder="請以連字號分隔，例如「(02)9999-1122」">
+            <input type="text" name="tel_home" id="inputHome" class="form-control" placeholder="請以連字號分隔，例如「(02)9999-1122」">
         </div>
     </div>
     <div class="form-group">
         <label for="inputAddress">居住地區</label>
-        <input type="text" name="addr" id="addr" class="form-control" placeholder="請輸入居住地區，例如「台北」">
+        <input type="text" name="addr" id="inputAddress" class="form-control" placeholder="請輸入居住地區，例如「台北」">
     </div>
-    <div class="d-flex">
+    <div class="form-group">
         <button type="submit" class="btn btn-primary">註冊</button>
-        <button type="reset" class="btn btn-primary ml-3 mr-3">清除</button>
-        <a href="./index.html" class="btn btn-outline-primary mr-1">回首頁</a>
+        <button type="reset" class="btn btn-primary ml-3">清除</button>
+        <a href="./index.html" class="btn btn-outline-primary float-right">回首頁</a>
     </div>
 </div>
 </div>
 </div>
 </form>
 
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script src="./js/jquery.validate.js"></script>
 <script>
+
 </script>
 </body>
 </html>
