@@ -11,7 +11,7 @@
     <script type="text/javascript" src="./js/bootstrap.min.js"></script>
 <!--  設定未登入或未註冊時的訊息  -->
 <?php
-session_start();
+include_once "./api/db_info.php";
 if(!isset($_SESSION['login']) || $_SESSION['login']==0){
 ?>
 <style>
@@ -75,6 +75,7 @@ body {
             <a class="dropdown-item" href="#" onclick="loadpage('skill.html')">工作技能</a>
             <a class="dropdown-item" href="#" onclick="loadpage('exp.html')">工作經歷</a>
             <a class="dropdown-item" href="#" onclick="loadpage('img.html')">頭像圖片</a>
+            <a class="dropdown-item" href="#" onclick="loadpage('work.html')">作品集合</a>
           </div>
         </li>
         <li class="nav-item">
@@ -139,6 +140,9 @@ if(!empty($_GET['p'])){
     break;
     case "da":
 ?>loadpage('data.html')<?php
+    break;
+    case "wo":
+?>loadpage('work.html')<?php
     break;
 
     default:

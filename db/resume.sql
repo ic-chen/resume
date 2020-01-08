@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 
+-- 產生時間： 2020-01-08 14:26:50
 -- 伺服器版本： 10.4.6-MariaDB
 -- PHP 版本： 7.3.9
 
@@ -80,8 +80,8 @@ INSERT INTO `exp` (`id`, `acct`, `see`, `dur`, `corp`, `posit`, `jd`) VALUES
 
 CREATE TABLE `img` (
   `id` int(11) NOT NULL,
-  `see` tinyint(1) NOT NULL DEFAULT 0,
   `acct` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `see` tinyint(1) NOT NULL DEFAULT 0,
   `filename` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `alt` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -90,10 +90,10 @@ CREATE TABLE `img` (
 -- 傾印資料表的資料 `img`
 --
 
-INSERT INTO `img` (`id`, `see`, `acct`, `filename`, `alt`) VALUES
-(1, 1, 'admin', '23d50e04b0c3027b.jpg', '企鵝'),
-(2, 0, 'admin', '7e7cd0b1jw1f811tiddxqj20fa0egdhz.jpg', '貓熊'),
-(4, 0, 'admin', 'wzLgOqh - Imgur.jpg', '企鵝');
+INSERT INTO `img` (`id`, `acct`, `see`, `filename`, `alt`) VALUES
+(1, 'admin', 1, '23d50e04b0c3027b.jpg', '企鵝'),
+(2, 'admin', 0, '7e7cd0b1jw1f811tiddxqj20fa0egdhz.jpg', '貓熊'),
+(4, 'admin', 0, 'wzLgOqh - Imgur.jpg', '企鵝');
 
 -- --------------------------------------------------------
 
@@ -210,16 +210,43 @@ CREATE TABLE `user` (
   `tel_cell` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '行動電話',
   `tel_home` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '家中電話',
   `addr` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '居住地區',
+  `page` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '履歷頁面',
   `reg_time` timestamp NULL DEFAULT current_timestamp() COMMENT '註冊時間',
-  `upt_time` timestamp NULL DEFAULT current_timestamp() COMMENT '更新時間'
+  `upt_time` timestamp NULL DEFAULT NULL COMMENT '更新時間'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `user`
 --
 
-INSERT INTO `user` (`id`, `acct`, `psw`, `name`, `gender`, `btd`, `email`, `tel_cell`, `tel_home`, `addr`, `reg_time`, `upt_time`) VALUES
-(1, 'admin', 'admin', '陳怡婷', '女性', '1986-07-09', 'irma_chen79@hotmail.com', '0929-810-875', '', '新北市永和區', '2019-12-11 03:21:24', '2019-12-11 03:21:24');
+INSERT INTO `user` (`id`, `acct`, `psw`, `name`, `gender`, `btd`, `email`, `tel_cell`, `tel_home`, `addr`, `page`, `reg_time`, `upt_time`) VALUES
+(1, 'admin', 'admin', '陳怡婷', '女性', '1986-07-09', 'irma_chen79@hotmail.com', '0929-810-875', '', '新北市永和區', '1dbbabe92f1fdcaa45c0ef1e7af2dca701c821ee8fd15e2264cd658d98a7b291', '2019-12-11 03:21:24', '2019-12-13 02:03:23');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `work`
+--
+
+CREATE TABLE `work` (
+  `id` int(20) NOT NULL,
+  `acct` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '帳號',
+  `see` tinyint(1) NOT NULL DEFAULT 1 COMMENT '可見',
+  `filename` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '圖片名稱',
+  `name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '作品名稱',
+  `url` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `work`
+--
+
+INSERT INTO `work` (`id`, `acct`, `see`, `filename`, `name`, `url`) VALUES
+(1, 'admin', 1, 'screenshot.jpg', '匯率走勢查詢 (RWD)', 'http://220.128.133.15/s1080318/rateTrend/'),
+(3, 'admin', 1, 'ShootingStars.jpg', '星星射擊遊戲 (RWD)', 'http://220.128.133.15/s1080318/ShootingStars/'),
+(4, 'admin', 1, 'FlipCards.jpg', '翻牌遊戲 (RWD)', 'http://220.128.133.15/s1080318/FlipCards/'),
+(5, 'admin', 1, 'clock.jpg', '時鐘 (RWD)', 'http://220.128.133.15/s1080318/clock/'),
+(6, 'admin', 1, 'calendar.jpg', '月曆', 'http://220.128.133.15/s1080318/Calendar/');
 
 --
 -- 已傾印資料表的索引
@@ -274,6 +301,12 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
+-- 資料表索引 `work`
+--
+ALTER TABLE `work`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
 --
 
@@ -323,7 +356,13 @@ ALTER TABLE `s_intro`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `work`
+--
+ALTER TABLE `work`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

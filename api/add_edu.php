@@ -1,6 +1,5 @@
 <?php
 include_once "db_info.php";
-session_start();
 
 $id=$_SESSION['id'];
 

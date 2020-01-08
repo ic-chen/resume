@@ -1,6 +1,5 @@
 <?php
 include_once "db_info.php";
-session_start();
 
 $acct=$_POST['acct'];
 $psw=$_POST['psw'];

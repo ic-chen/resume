@@ -9,16 +9,17 @@ if(!empty($_FILES) AND $_FILES['img']['error']==0) {
 
     $filename=$_FILES['img']['name'];
     $acct=$data['acct'];
-    $alt=$_POST['alt'];
+    $name=$_POST['name'];
+    $url=$_POST['url'];
 
-    $sql="INSERT INTO `img`(`acct`,`filename`,`alt`) 
-    VALUES ('$acct','$filename','$alt')";
+    $sql="INSERT INTO `work`(`acct`,`filename`,`name`,`url`) 
+    VALUES ('$acct','$filename','$name','$url')";
 
     echo $sql;
     $pdo->exec($sql);
     move_uploaded_file($_FILES['img']['tmp_name'],"../img/".$filename);
 }
 
-header("location:../admin.php?p=im");
+header("location:../admin.php?p=wo");
 
 ?>
