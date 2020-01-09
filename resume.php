@@ -74,26 +74,8 @@ function searchAll($table,...$arg){
 <body class="bg-light text-dark">
 
 <!-- 提示 -->
-<?php
-function randomnum($length) {
-    global $pdo;
-    $num="";
-    $pattern = "1234567890abcdefghijklmnopqrstuvwxyz   
-               ABCDEFGHIJKLOMNOPQRSTUVWXYZ";  
-    for($i=0;$i<$length;$i++) {   
-        $num .= $pattern{mt_rand(0,35)}; 
-    }
-    $page=hash("sha256", $num);
-    $id=$_SESSION['id'];
-    $sql="UPDATE `user` SET `page`='$page' WHERE `id`='$id'";
-    // echo $sql;
-    $pdo->exec($sql);
-    return $page;
-}   
-
-?>
 <div class="alert alert-secondary text-center" role="alert">
-  產生<a href="./myresume.php?p=<?=randomnum(8);?>" target="_blank" class="alert-link">履歷連結</a>。
+  產生<a href="./api/resume.php" target="_blank" class="alert-link">履歷連結</a>。
 </div>
 
 <div class="container-fluid">
