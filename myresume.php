@@ -398,11 +398,18 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
         </div>
     </div>
     <!-- 分隔線 -->
+    <?php
+    $count=$pdo->query("SELECT COUNT(*) FROM `work` WHERE `acct`='$acct' && `see`='1'")->fetch();
+    if($count[0][0]!=0){
+    ?>
     <div class="row justify-content-center">
         <div class="col-12 col-sm-10 col-md-12 col-lg-8">
             <hr>
         </div>
     </div>
+    <?php
+    }
+    ?>
     <!-- 作品集 -->
     <div class="row justify-content-center">
         <div class="col-12 col-sm-10 col-md-12 col-lg-8">
