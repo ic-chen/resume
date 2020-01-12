@@ -25,74 +25,76 @@ $s_m_github=$value['github'];
 $s_m_youtube=$value['youtube'];
 $s_m_twitter=$value['twitter'];
 $num++;
+?>
 
-echo "<div class='card m-1'>";
-echo "<div class='card-body text-left'>";
+<div class="card m-1">
+<div class="card-body text-left">
 
-// 第一列
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <div class='form-check'>";
-echo "            <input class='form-check-input' name='see' type='radio' id='see$num' $checked>";
-echo "            <label class='form-check-label' name='see' for='see$num'>在履歷中顯示</label>";
-echo "        </div>";
-echo "    </div>";
-echo "</div>";
+<!-- 第一列 -->
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <div class="form-check">
+            <input class="form-check-input" name="see" type="radio" id="see<?=$num;?>" <?=$checked;?>>
+            <label class="form-check-label" name="see" for="see<?=$num;?>">在履歷中顯示</label>
+        </div>
+    </div>
+</div>
 
-// 第二列
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <label for='inputFB'>FB</label>";
-echo "        <input type='text' class='form-control' value='$s_m_fb'>";
-echo "    </div>";
-echo "</div>";
+<!-- 第二列 -->
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="inputFB">FB</label>
+        <input type="text" class="form-control" value="<?=$s_m_fb;?>">
+    </div>
+</div>
 
-// 第三列
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <label for='inputIG'>IG</label>";
-echo "        <input type='text' class='form-control' value='$s_m_ig'>";
-echo "    </div>";
-echo "</div>";
+<!-- 第三列 -->
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="inputIG">IG</label>
+        <input type="text" class="form-control" value="<?=$s_m_ig;?>">
+    </div>
+</div>
 
-// 第四列
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <label for='inputLinkedIn'>LinkedIn</label>";
-echo "        <input type='text' class='form-control' value='$s_m_linkedin'>";
-echo "    </div>";
-echo "</div>";
+<!-- 第四列 -->
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="inputLinkedIn">LinkedIn</label>
+        <input type="text" class="form-control" value="$<?=$s_m_linkedin;?>">
+    </div>
+</div>
 
-// 第五列
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <label for='inputGitHub'>GitHub</label>";
-echo "        <input type='text' class='form-control' value='$s_m_github'>";
-echo "    </div>";
-echo "</div>";
+<!-- 第五列 -->
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="inputGitHub">GitHub</label>
+        <input type="text" class="form-control" value="<?=$s_m_github;?>">
+    </div>
+</div>
 
-// 第六列
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <label for='inputYoutube'>Youtube</label>";
-echo "        <input type='text' class='form-control' value='$s_m_youtube'>";
-echo "    </div>";
-echo "</div>";
+<!-- 第六列 -->
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="inputYoutube">Youtube</label>
+        <input type="text" class="form-control" value="<?=$s_m_youtube;?>">
+    </div>
+</div>
 
-// 第七列
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <label for='inputTwitter'>Twitter</label>";
-echo "        <input type='text' class='form-control' value='$s_m_twitter'>";
-echo "    </div>";
-echo "</div>";
+<!-- 第七列 -->
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="inputTwitter">Twitter</label>
+        <input type="text" class="form-control" value="<?=$s_m_twitter;?>">
+    </div>
+</div>
 
-// 按鈕列
-echo "    <input type='button' value='更新' class='upt-btn btn btn-primary' id='$s_m_id'>";
-echo "    <input type='button' value='刪除' class='del-btn btn btn-primary'>";
+<!-- 按鈕列 -->
+    <input type="button" value="更新" class="upt-btn btn btn-primary" id="<?=$s_m_id;?>">
+    <input type="button" value="刪除" class="del-btn btn btn-primary">
 
-// 收尾標籤
-echo "</div>";
-echo "</div>";
+<!-- 收尾標籤 -->
+</div>
+</div>
+<?php
 }
 ?>

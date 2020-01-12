@@ -191,7 +191,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                 ?>
                     <tr>
                     <td><i class="far fa-envelope fa-lg"></i></th>
-                    <td><?=$data['email'];?></td>
+                    <td><a href="mailto:<?=$data['email'];?>"><?=$data['email'];?></td>
                     </tr>
                 <?php
                 }
@@ -199,7 +199,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                 ?>
                     <tr>
                     <td><i class="fab fa-facebook-f fa-lg"></i></td>
-                    <td><?=$value['fb'];?></td>
+                    <td><a href="<?=$value['fb'];?>" target="_blank"><?=$value['fb'];?></a></td>
                     </tr>
                 <?php
                     }
@@ -207,7 +207,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                 ?>
                     <tr>
                     <td><i class="fab fa-instagram fa-lg"></i></td>
-                    <td><?=$value['ig'];?></td>
+                    <td><a href="<?=$value['ig'];?>" target="_blank"><?=$value['ig'];?></a></td>
                     </tr>
                 <?php
                 }
@@ -215,7 +215,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                 ?>
                     <tr>
                     <td><i class="fab fa-linkedin-in fa-lg"></td>
-                    <td><?=$value['linkedin'];?></td>
+                    <td><a href="<?=$value['linkedin'];?>" target="_blank"><?=$value['linkedin'];?></a></td>
                     </tr>
                 <?php
                 }
@@ -223,7 +223,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                 ?>
                     <tr>
                     <td><i class="fab fa-github fa-lg"></i></td>
-                    <td><?=$value['github'];?></td>
+                    <td><a href="<?=$value['github'];?>" target="_blank"><?=$value['github'];?></a></td>
                     </tr>
                 <?php
                 }
@@ -231,7 +231,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                 ?>
                     <tr>
                     <td><i class="fab fa-youtube fa-lg"></i></td>
-                    <td><?=$value['youtube'];?></td>
+                    <td><a href="<?=$value['youtube'];?>" target="_blank"><?=$value['youtube'];?></a></td>
                     </tr>
                 <?php
                 }
@@ -239,7 +239,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                 ?>
                     <tr>
                     <td><i class="fab fa-twitter fa-lg"></i></td>
-                    <td><?=$value['twitter'];?></td>
+                    <td><a href="<?=$value['twitter'];?>" target="_blank"><?=$value['twitter'];?></a></td>
                     </tr>
                 <?php
                     }

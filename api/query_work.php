@@ -21,57 +21,59 @@ $filename=$value['filename'];
 $name=$value['name'];
 $url=$value['url'];
 $num++;
+?>
 
-echo "<div class='card m-1'>";
-echo "<div class='card-body text-left'>";
+<div class="card m-1">
+<div class="card-body text-left">
 
-// 第一列
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <div class='form-check'>";
-echo "            <input class='form-check-input' type='checkbox' id='see$num' $checked>";
-echo "            <label class='form-check-label' for='see$num'>在履歷中顯示</label>";
-echo "        </div>";
-echo "    </div>";
-echo "</div>";
+<!-- 第一列 -->
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="see<?=$num;?>" <?=$checked;?>>
+            <label class="form-check-label" for="see<?=$num;?>">在履歷中顯示</label>
+        </div>
+    </div>
+</div>
 
-// 第二列
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <img src='./img/$filename' alt='$filename' class='img-thumbnail'>";
-echo "    </div>";
-echo "</div>";
+<!-- 第二列 -->
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <img src="./img/<?=$filename;?>" alt="<?=$filename;?>" class="img-thumbnail">
+    </div>
+</div>
 
-// 第三列
-// echo "<div class='form-row'>";
-// echo "    <div class='form-group col-md-12'>";
-// echo "        <label for='exampleFormControlFile1'>請選擇一張圖片</label>";
-// echo "        <input type='file' class='form-control-file' id='exampleFormControlFile1' type='file' name='img'>";
-// echo "    </div>";
-// echo "</div>";
+<!-- 第三列 -->
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="exampleFormControlFile1">請選擇一張圖片</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" type="file" name="img">
+    </div>
+</div>
 
-// 第四列
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <label for='inputName'>作品名稱</label>";
-echo "        <input type='text' class='form-control' name='name' value='$name'>";
-echo "    </div>";
-echo "</div>";
+<!-- 第四列 -->
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="inputName">作品名稱</label>
+        <input type="text" class="form-control" name="name" value="<?=$name;?>">
+    </div>
+</div>
 
-// 第五列
-echo "<div class='form-row'>";
-echo "    <div class='form-group col-md-12'>";
-echo "        <label for='inputURL'>URL</label>";
-echo "        <input type='text' class='form-control' value='$url'>";
-echo "    </div>";
-echo "</div>";
+<!-- 第五列 -->
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="inputURL">URL</label>
+        <input type="text" class="form-control" value="<?=$url;?>">
+    </div>
+</div>
 
-// 按鈕列
-echo "    <input type='button' value='更新' class='upt-btn btn btn-primary' id='$work_id'>";
-echo "    <input type='button' value='刪除' class='del-btn btn btn-primary'>";
+<!-- 按鈕列 -->
+    <input type="button" value="更新" class="upt-btn btn btn-primary" id="<?=$work_id;?>">
+    <input type="button" value="刪除" class="del-btn btn btn-primary">
 
-// 收尾標籤
-echo "</div>";
-echo "</div>";
+<!-- 收尾標籤 -->
+</div>
+</div>
+<?php
 }
 ?>
