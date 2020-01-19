@@ -75,8 +75,16 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
-                    <label for="inputLevel">程度</label>
-                    <input type="text" name="level" class="form-control">
+                    <label for="customRange1">程度</label>
+                    <input type="range" class="custom-range" id="customRange1">
+                    <input type="text" name="level" class="level form-control" value="">
+                    <small class="form-text text-primary">請使用滑桿調整，或直接輸入百分比數值。</small>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputDes">說明</label>
+                    <input type="text" name="des" class="form-control">
                 </div>
             </div>
             <div class="modal-footer">
@@ -84,15 +92,23 @@
                 <input type="submit" class="btn btn-primary" value="新增">
             </div>
         </div>
-    </div>
     </form>
+    </div>
 </div>
 
 <script>
 $(function(){
 
+    $('input.custom-range').on('change', function(){
+        $(this).next('input').val($(this).val() + '%')
+    })
+
     $.get('./api/query_skill.php',{},function(echo){
         $('.data').append(echo)
+
+        $('input.custom-range').on('change', function(){
+            $(this).next('input').val($(this).val() + '%')
+        })
 
         // 更新資料
         $('input.upt-btn').on('click',function(){
@@ -100,10 +116,11 @@ $(function(){
             let upt_chked=dom.find('input').eq(0).prop('checked')
             let cat=dom.find('option:selected').val()
             let skill=dom.find('input').eq(1).val()
-            let level=dom.find('input').eq(2).val()
+            let level=dom.find('input').eq(3).val()
+            let des=dom.find('input').eq(4).val()
             let upt_id=$(this).attr('id')
-            // console.log(skill)
-            $.post('./api/update_skill.php',{upt_chked,cat,skill,level,upt_id},function(){
+            // console.log(level)
+            $.post('./api/update_skill.php',{upt_chked,cat,skill,level,des,upt_id},function(){
                 window.location.replace("./admin.php?p=sk")
             })
         })

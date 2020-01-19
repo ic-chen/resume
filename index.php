@@ -44,7 +44,8 @@ function searchAll($table,...$arg){
     <link rel="stylesheet" href="./css/all.css">
 <style>
     body {
-        font-size: 1.2em;
+        /* font-size: 1.2em; */
+        line-height: 2em;
     }
     .row {
         margin: 1em;
@@ -63,11 +64,22 @@ function searchAll($table,...$arg){
         word-wrap: break-word;
     }
     .skill-table tr th {
-        width: 50%;
         border-bottom: 1px solid #dee2e6;
+    }
+    .skill-table tr th:nth-child(1) {
+    width: 30%;
+    }
+    .skill-table tr th:nth-child(2) {
+    width: 35%;
+    }
+    .skill-table tr th:nth-child(3) {
+    width: 35%;
     }
     .skill-table td {
         border: none;
+    }
+    .portfolio {
+        padding: 0.8rem;
     }
 </style>
 </head>
@@ -250,7 +262,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
             }
             ?>
             <!-- 學歷資料 -->
-            <div class="edu card border-secondary">
+            <div class="edu card border-secondary mb-4">
                 <div class="card-header">
                 學歷
                 </div>
@@ -258,7 +270,6 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                 <?php
                 foreach($edu as $value) {
                 ?>
-                    <blockquote class="blockquote mb-0">
                     <p>
                 <?php
                 if(!empty($value['grad_t'])) {
@@ -283,7 +294,6 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                 }
                 ?>
                     </p>
-                    </blockquote>
                 <?php
                 }
                 ?>
@@ -301,9 +311,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                 自傳
                 </div>
                 <div class="card-body">
-                    <blockquote class="blockquote mb-0">
                     <p><?=$v['bio'];?></p>
-                    </blockquote>
                 </div>
             </div>
             <?php
@@ -329,6 +337,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                     <tr>
                     <th scope="col"><?=$category;?></th>
                     <th scope="col">程度</th>
+                    <th scope="col">說明</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -338,7 +347,12 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                 ?>
                 <tr>
                 <td><?=$value['skill'];?></td>
-                <td><?=$value['level'];?></td>
+                <td style="padding-top: 0.7em; padding-right: 1.5em;">
+                    <div class="progress" style="height: 2em;">
+                        <div class="progress-bar bg-secondary" role="progressbar" style="width: <?=$value['level'];?>;" aria-valuenow="<?=$value['level'];?>" aria-valuemin="0" aria-valuemax="100"><?=$value['level'];?></div>
+                    </div>
+                </td>
+                <td><?=$value['des'];?></td>
                 </tr>
                 <?php
                     }
@@ -370,19 +384,19 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                         <span class="font-weight-bold"><?=$value['posit'];?></span>
                         <?php
                     }
+                    if(!empty($value['corp'])) {
+                        ?>
+                            — <?=$value['corp'];?>
+                        <?php
+                        }
                     if(!empty($value['dur'])) {
                     ?>
                         <br><span class="text-muted"><?=$value['dur'];?></span>
                     <?php
                     }
-                    if(!empty($value['corp'])) {
-                    ?>
-                        <br><?=$value['corp'];?>
-                    <?php
-                    }
                     if(!empty($value['jd'])) {
                     ?>
-                        <br><i class="far fa-caret-square-right fa-lg"></i> <?=$value['jd'];?>
+                        <br><i class="fas fa-caret-right fa-lg"></i> 說明：<?=$value['jd'];?>
                     <?php
                     }
                     ?>
@@ -405,6 +419,15 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
             <hr>
         </div>
     </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-12 col-lg-8">
+            <div class="card text-white bg-secondary mb-2">
+                <div class="portfolio card-body text-center">
+                作品集
+                </div>
+            </div>
+        </div>
+    </div>
     <?php
     }
     ?>
@@ -420,7 +443,7 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                     <div class="card border-secondary">
                         <img src="./img/<?=$value['filename'];?>" class="card-img-top" alt="<?=$value['filename'];?>">
                         <div class="card-body">
-                            <h5 class="card-title"><?=$value['name'];?></h5>
+                            <h6 class="card-title"><?=$value['name'];?></h6>
                             <a href="<?=$value['url'];?>" class="btn btn-outline-secondary">前往網站</a>
                         </div>
                     </div>

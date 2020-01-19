@@ -11,9 +11,10 @@ $acct=$data['acct'];
 $cat=$_POST['cat'];
 $skill=$_POST['skill'];
 $level=$_POST['level'];
+$des=$_POST['des'];
 
-$sql="INSERT INTO `skill`(`acct`, `cat`, `skill`, `level`) 
-VALUES ('$acct','$cat','$skill','$level')";
+$sql="INSERT INTO `skill`(`acct`, `cat`, `skill`, `des`, `level`) 
+VALUES ('$acct','$cat','$skill','$des','$level')";
 
 echo $sql;
 $pdo->exec($sql);

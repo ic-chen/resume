@@ -20,6 +20,7 @@ $checked=($value['see']==1)?"checked":"";
 $cat=$value['cat'];
 $skill=$value['skill'];
 $level=$value['level'];
+$des=$value['des'];
 $num++;
 ?>
 
@@ -71,8 +72,18 @@ $num++;
 <!-- 第四列 -->
 <div class="form-row">
     <div class="form-group col-md-12">
-        <label for="inputLevel">程度</label>
-        <input type="text" class="form-control" value="<?=$level;?>">
+        <label for="customRange0<?=$num;?>">程度</label>
+        <input type="range" class="custom-range" id="customRange0<?=$num;?>" min="0" max="100" step="1" value="<?=str_replace("%","",$level);?>">
+        <input type="text" name="level" class="level form-control" value="<?=$level;?>">
+        <small class="form-text text-primary">請使用滑桿調整，或直接輸入百分比數值。</small>
+    </div>
+</div>
+
+<!-- 第五列 -->
+<div class="form-row">
+    <div class="form-group col-md-12">
+        <label for="inputDes">說明</label>
+        <input type="text" name="des" class="form-control" value="<?=$des;?>">
     </div>
 </div>
 
