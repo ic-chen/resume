@@ -50,7 +50,7 @@ function searchAll($table,...$arg){
     .row {
         margin: 1em;
     }
-    .work {
+    .work, .art {
         margin-top: 0;
         margin-bottom: 0;
         margin-right: -15px;
@@ -445,6 +445,38 @@ $edu=searchAll("edu",["acct"=>"$acct", "see"=>"1"]," ORDER BY id DESC");
                         <div class="card-body">
                             <h6 class="card-title"><?=$value['name'];?></h6>
                             <a href="<?=$value['url'];?>" class="btn btn-outline-secondary">前往網站</a>
+                        </div>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+            </div>
+        </div>
+    </div>
+    <!-- 設計作品 -->
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-12 col-lg-8">
+            <div class="card text-white bg-secondary mb-2">
+                <div class="portfolio card-body text-center">
+                設計作品
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-12 col-lg-8">
+            <div class="art row">
+            <?php
+            $art=searchAll("art",["acct"=>"$acct", "see"=>"1"]);
+            foreach($art as $value) {
+            ?>
+                <div class="col-12 col-sm-10 col-md-6 col-lg-4 mb-4">
+                    <div class="card border-secondary">
+                        <img src="./img/<?=$value['filename'];?>" class="card-img-top" alt="<?=$value['filename'];?>">
+                        <div class="card-body">
+                            <h6 class="card-title"><?=$value['name'];?></h6>
+                            <a href="<?=$value['url'];?>" class="btn btn-outline-secondary" target="_blank">前往網站</a>
                         </div>
                     </div>
                 </div>

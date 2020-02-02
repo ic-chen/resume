@@ -76,6 +76,7 @@ body {
             <a class="dropdown-item" href="#" onclick="loadpage('exp.html')">工作經歷</a>
             <a class="dropdown-item" href="#" onclick="loadpage('img.html')">頭像圖片</a>
             <a class="dropdown-item" href="#" onclick="loadpage('work.html')">作品集合</a>
+            <a class="dropdown-item" href="#" onclick="loadpage('art.html')">設計作品</a>
           </div>
         </li>
         <li class="nav-item">
@@ -143,6 +144,9 @@ if(!empty($_GET['p'])){
     break;
     case "wo":
 ?>loadpage('work.html')<?php
+    break;
+    case "ar":
+?>loadpage('art.html')<?php
     break;
 
     default:
