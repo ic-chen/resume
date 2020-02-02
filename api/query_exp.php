@@ -22,56 +22,54 @@ $corp=$value['corp'];
 $posit=$value['posit'];
 $jd=$value['jd'];
 $num++;
-?>
 
-<div class="card m-1">
-<div class="card-body text-left">
+echo "<div class='card m-1'>";
+echo "<div class='card-body text-left'>";
 
-<!-- 第一列 -->
-<div class="form-row">
-    <div class="form-group col-md-12">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="see<?=$num;?>" <?=$checked;?>>
-            <label class="form-check-label" for="see<?=$num;?>">在履歷中顯示</label>
-        </div>
-    </div>
-</div>
+// 第一列
+echo "<div class='form-row'>";
+echo "    <div class='form-group col-md-12'>";
+echo "        <div class='form-check'>";
+echo "            <input class='form-check-input' type='checkbox' id='see$num' $checked>";
+echo "            <label class='form-check-label' for='see$num'>在履歷中顯示</label>";
+echo "        </div>";
+echo "    </div>";
+echo "</div>";
 
-<!-- 第二列 -->
-<div class="form-row">
-    <div class="form-group col-md-12">
-        <label for="inputDur">任職期間</label>
-        <input type="text" class="form-control" value="<?=$dur;?>">
-    </div>
-</div>
+// 第二列
+echo "<div class='form-row'>";
+echo "    <div class='form-group col-md-12'>";
+echo "        <label for='inputDur'>任職期間</label>";
+echo "        <input type='text' class='form-control' value='$dur'>";
+echo "    </div>";
+echo "</div>";
 
-<!-- 第三列 -->
-<div class="form-row">
-    <div class="form-group col-md-7">
-        <label for="inputCorp">公司</label>
-        <input type="text" class="form-control" value="<?=$corp;?>">
-    </div>
-    <div class="form-group col-md-5">
-        <label for="inputPosit">職稱</label>
-        <input type="text" class="form-control" value="<?=$posit;?>">
-    </div>
-</div>
+// 第三列
+echo "<div class='form-row'>";
+echo "    <div class='form-group col-md-7'>";
+echo "        <label for='inputCorp'>公司</label>";
+echo "        <input type='text' class='form-control' value='$corp'>";
+echo "    </div>";
+echo "    <div class='form-group col-md-5'>";
+echo "        <label for='inputPosit'>職稱</label>";
+echo "        <input type='text' class='form-control' value='$posit'>";
+echo "    </div>";
+echo "</div>";
 
-<!-- 第四列 -->
-<div class="form-row">
-    <div class="form-group col-md-12">
-        <label for="inputJD">工作說明</label>
-        <textarea class="form-control" name="jd" rows="5"><?=$jd;?></textarea>
-    </div>
-</div>
+// 第四列
+echo "<div class='form-row'>";
+echo "    <div class='form-group col-md-12'>";
+echo "        <label for='inputJD'>工作說明</label>";
+echo "        <textarea class='form-control' name='jd' rows='5'>$jd</textarea>";
+echo "    </div>";
+echo "</div>";
 
-<!-- 按鈕列 -->
-<input type="button" value="更新" class="upt-btn btn btn-primary" id="<?=$exp_id;?>">
-<input type="button" value="刪除" class="del-btn btn btn-primary">
+// 按鈕列
+echo "    <input type='button' value='更新' class='upt-btn btn btn-primary' id='$exp_id'>";
+echo "    <input type='button' value='刪除' class='del-btn btn btn-primary'>";
 
-<!-- 收尾標籤 -->
-</div>
-</div>
-<?php
+// 收尾標籤
+echo "</div>";
+echo "</div>";
 }
 ?>
